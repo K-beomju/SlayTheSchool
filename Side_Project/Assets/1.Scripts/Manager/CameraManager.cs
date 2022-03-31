@@ -9,7 +9,7 @@ public class CameraManager : Singleton<CameraManager>
 
     protected override void Awake()
     {
-        // base.Awake();
+         base.Awake();
         if (shakeCam != null)
             shakeCam = GetComponent<ShakeCamera>();
 

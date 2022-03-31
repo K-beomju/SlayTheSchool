@@ -2,18 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class Pools
+{
+    public ObjectPooling<BOX> poolBox { get; set; }
+}
+
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private GameObject box;
+    private Pools pools = new Pools();
 
 
-
-    public static MonoBehaviour GetCreateObject<T>(ObjectPooling<MonoBehaviour> objectPool)
+    protected override void Awake()
     {
-        return objectPool.GetOrCreate();
+        if (pools == null)
+            pools = new Pools();
+        ResetPoolEntity();
     }
 
-      public static MonoBehaviour GetCreateObjects<T>(ObjectPooling<MonoBehaviour>[] objectPool , int num)
+    public void ResetPoolEntity() => pools.poolBox = new ObjectPooling<BOX>(box, transform);
+
+    public static BOX GetCreateBox()
     {
-        return objectPool[num].GetOrCreate();
+        return Instance.pools.poolBox.GetOrCreate();
     }
+
+
+
 }

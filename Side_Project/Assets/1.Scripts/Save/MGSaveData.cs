@@ -63,6 +63,7 @@ public  class MGSaveData : MonoBehaviour
     [ContextMenu("SAVE")]
     public void Save()
     {
+        Debug.LogWarning("데이터를 저장합니다.");
         _binaryFormatter = new BinaryFormatter();
         _fileStream = File.Create(getFilePath(fileName));
 
@@ -106,6 +107,9 @@ public  class MGSaveData : MonoBehaviour
                 Debug.LogWarning("Create New SaveFile!");
                 Save();
             }
+
+            Debug.LogWarning("데이터를 로드합니다.");
+
         }
         catch (System.Exception e)
         {
@@ -118,13 +122,13 @@ public  class MGSaveData : MonoBehaviour
     [ContextMenu("Delete")]
     public  void Delete()
     {
-        if(System.IO.File.Exists(getFilePath(fileName)))
+        if(File.Exists(getFilePath(fileName)))
         {
             try
             {
-                System.IO.File.Delete(getFilePath(fileName));
+                File.Delete(getFilePath(fileName));
             }
-            catch (System.IO.IOException e)
+            catch (IOException e)
             {
                 Console.WriteLine(e.Message);
                 return;

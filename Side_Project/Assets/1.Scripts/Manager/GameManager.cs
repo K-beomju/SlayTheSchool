@@ -1,26 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
-  //  [SerializeField] private GameObject box;
-
+    public Text testTxt;
 
     protected override void Awake()
     {
         base.Awake();
-    //    ResetPoolEntity();
     }
 
-  //  public void ResetPoolEntity() => poolBox = new ObjectPooling<BOX>(box, transform);
 
-    // public static BOX GetCreateBox()
-    // {
-    //     return Instance.poolBox.GetOrCreate();
-    // }
+    public void SetText()
+    {
+        testTxt.text = MGSaveData.instance.GetUserInfoData()._myGold.ToString();
+    }
 
-   
+    public void UpGold()
+    {
+        MGSaveData.instance.GetUserInfoData()._myGold++;
+    }
+
 
 }

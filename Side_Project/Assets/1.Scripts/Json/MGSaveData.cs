@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class MGSaveData : MonoBehaviour
+public  class MGSaveData : MonoBehaviour
 {
     private static MGSaveData _instance;
     public static MGSaveData instance
@@ -38,6 +38,8 @@ public class MGSaveData : MonoBehaviour
     {
         Debug.LogWarning("-------------------");
         Load();
+        GameManager.Instance.SetText();
+
     }
 
     private void Awake()
@@ -53,17 +55,12 @@ public class MGSaveData : MonoBehaviour
 
     }
 
-    public SaveData GetSaveData()
+    private void Start()
     {
-        return saveData;
+        generate();
     }
 
-    public DTest GetDTest()
-    {
-        return saveData._dTest;
-    }
-
-    [ContextMenu("Save")]
+    [ContextMenu("SAVE")]
     public void Save()
     {
         _binaryFormatter = new BinaryFormatter();
@@ -72,14 +69,14 @@ public class MGSaveData : MonoBehaviour
         _binaryFormatter.Serialize(_fileStream, saveData);
 
         _fileStream.Close();
+        GameManager.Instance.SetText();
     }
-    
-    [ContextMenu("Load")]
+
+    [ContextMenu("LOAD")]
     public void Load()
     {
         saveData = new SaveData();
-
-        int classVer = saveData.version;  
+        int classVer = saveData.version;
 
         try
         {
@@ -91,9 +88,9 @@ public class MGSaveData : MonoBehaviour
                 saveData = (SaveData)_binaryFormatter.Deserialize(_fileStream);
 
                 int fileVer = saveData.version;
-                
+
                 // 세이브 파일 버전 체크
-                if(classVer != fileVer)
+                if (classVer != fileVer)
                 {
                     // 바뀐 버전에 맞는 처리를 해줘야 함
                     Debug.LogFormat("Savefile version : class:{0},file:{1}", classVer, fileVer);
@@ -105,6 +102,7 @@ public class MGSaveData : MonoBehaviour
             }
             else
             {
+                // Null File => Create File 
                 Debug.LogWarning("Create New SaveFile!");
                 Save();
             }
@@ -117,10 +115,40 @@ public class MGSaveData : MonoBehaviour
         }
     }
 
+    [ContextMenu("Delete")]
+    public  void Delete()
+    {
+        if(System.IO.File.Exists(getFilePath(fileName)))
+        {
+            try
+            {
+                System.IO.File.Delete(getFilePath(fileName));
+            }
+            catch (System.IO.IOException e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
+        }
+
+    }
 
     string getFilePath(string fileName)
     {
         return Application.persistentDataPath + "/" + fileName;
     }
+
+    public SaveData GetSaveData()
+    {
+        return saveData;
+    }
+
+    public UserInfoData GetUserInfoData()
+    {
+        return saveData._myUserInfoDt;
+    }
+
+
+
 
 }

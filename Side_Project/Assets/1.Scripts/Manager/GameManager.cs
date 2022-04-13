@@ -1,27 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using MEC;
 
 public class GameManager : Singleton<GameManager>
 {
-    public Text testTxt;
-
     protected override void Awake()
     {
         base.Awake();
     }
 
-
-    public void SetText()
+    private void Start()
     {
-        testTxt.text = MGSaveData.instance.GetUserInfoData()._myGold.ToString();
-    }
-
-    public void UpGold()
-    {
-        MGSaveData.instance.GetUserInfoData()._myGold++;
     }
 
 
+    // More Effective Coroutine Guide
+    // Timing.RunCoroutine(_TimeCo());
+    // private IEnumerator<float> _TimeCo()
+    // {
+    //     yield return Timing.WaitForSeconds(3f);
+    // }
 }

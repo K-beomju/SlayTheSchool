@@ -38,7 +38,6 @@ public  class MGSaveData : MonoBehaviour
     {
         Debug.LogWarning("-------------------");
         Load();
-        GameManager.Instance.SetText();
 
     }
 
@@ -70,7 +69,6 @@ public  class MGSaveData : MonoBehaviour
         _binaryFormatter.Serialize(_fileStream, saveData);
 
         _fileStream.Close();
-        GameManager.Instance.SetText();
     }
 
     [ContextMenu("LOAD")]

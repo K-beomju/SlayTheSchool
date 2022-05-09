@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class CameraManager : Singleton<CameraManager>
 {
-    private ShakeCamera shakeCam;
-    private Camera mainCam;
+    private GameObject camGroup;    // Camera Group  
+    private ShakeCamera shakeCam;   // Cinemachine Cam
 
     protected override void Awake()
     {
-         base.Awake();
-        if (shakeCam != null)
-            shakeCam = GetComponent<ShakeCamera>();
+        base.Awake();
 
-        if (mainCam != null)
-            mainCam = Camera.main;
+        camGroup = GameObject.Find("CamGroup");
+        shakeCam = camGroup.GetComponentInChildren<ShakeCamera>();
     }
-
-
 
 
 

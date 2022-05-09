@@ -5,16 +5,14 @@ using Cinemachine;
 
 public class ShakeCamera : MonoBehaviour
 {
-    private CinemachineVirtualCamera cmVcam = null;
-    private CinemachineBasicMultiChannelPerlin noise = null;
+    public CinemachineVirtualCamera cmVcam = null;
+    public CinemachineBasicMultiChannelPerlin noise = null;
     private Coroutine co = null;
 
 
     private void Awake()
     {
-        if(cmVcam != null)
         cmVcam = GetComponent<CinemachineVirtualCamera>();
-        if(noise != null)
         noise = cmVcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
@@ -27,7 +25,6 @@ public class ShakeCamera : MonoBehaviour
 
     IEnumerator ReduceShake(float during)
     {
-
         while (noise.m_AmplitudeGain >= 0.2f)
         {
             noise.m_AmplitudeGain = Mathf.Lerp(noise.m_AmplitudeGain, 0, Time.deltaTime / during);

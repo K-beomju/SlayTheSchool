@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class MGSaveData : MonoBehaviour
+public  class MGSaveData : MonoBehaviour
 {
     private static MGSaveData _instance;
     public static MGSaveData instance

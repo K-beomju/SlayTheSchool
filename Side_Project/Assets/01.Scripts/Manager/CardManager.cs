@@ -28,7 +28,7 @@ public class CardManager : Singleton<CardManager>
     private void Start()
     {
         SetupItemBuffer();
-        StartCoroutine(SpawnCardCo());
+       // StartCoroutine(SpawnCardCo());
     }
 
     private IEnumerator SpawnCardCo()
@@ -98,6 +98,11 @@ public class CardManager : Singleton<CardManager>
 
         }
 
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            AddCard();
+        }
+
     }
 
     private void AddCard()
@@ -146,7 +151,7 @@ public class CardManager : Singleton<CardManager>
         switch(objCount)
         {
             
-            case 0: objLerps = new float[] { 0.4f }; break;
+            case 0: objLerps = new float[] { 0.5f }; break;
             case 1: objLerps = new float[] { 0.5f }; break;
             case 2: objLerps = new float[] { 0.1f, 0.5f, 0.9f }; break;
             default:
@@ -160,7 +165,7 @@ public class CardManager : Singleton<CardManager>
         {
             var targetPos = Vector3.Lerp(leftTr.position, rightTr.position, objLerps[i]);
             var targetRot = Utils.QI;
-            if (objCount >= 3)
+            if (objCount >= 2)
             {
                 float curve = Mathf.Sqrt(Mathf.Pow(height, 2) - Mathf.Pow(objLerps[i] - 0.5f, 2));
                 targetPos.y += curve; 
@@ -212,8 +217,7 @@ public class CardManager : Singleton<CardManager>
     {
         if(!onCardArea)
         {
-            //selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
-            selectCard.transform.position = Utils.MousePos;
+            selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
         }
     }
 

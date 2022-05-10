@@ -28,7 +28,7 @@ public class CardManager : Singleton<CardManager>
     private void Start()
     {
         SetupItemBuffer();
-       // StartCoroutine(SpawnCardCo());
+        StartCoroutine(SpawnCardCo());
     }
 
     private IEnumerator SpawnCardCo()
@@ -92,16 +92,12 @@ public class CardManager : Singleton<CardManager>
         }
         DetectCardArea();
 
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            StartCoroutine(ExitCardCo());
-
-        }
 
         if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
             AddCard();
-        }
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+            StartCoroutine(ExitCardCo());
+        
 
     }
 
@@ -153,7 +149,29 @@ public class CardManager : Singleton<CardManager>
             
             case 0: objLerps = new float[] { 0.5f }; break;
             case 1: objLerps = new float[] { 0.5f }; break;
-            case 2: objLerps = new float[] { 0.1f, 0.5f, 0.9f }; break;
+            case 2:
+                cardLeft.transform.position = new Vector3(-1.5f, cardLeft.position.y);
+                cardRight.transform.position = new Vector3(1.5f, cardRight.position.y);
+                objLerps = new float[] { 0.1f, 0.9f }; 
+                break;
+            case 3:
+                cardLeft.transform.position = new Vector3(-3f, cardLeft.position.y);
+                cardRight.transform.position = new Vector3(3f, cardRight.position.y);
+                objLerps = new float[] { 0.1f, 0.5f, 0.9f };
+                break;
+            case 4:
+                cardLeft.transform.position = new Vector3(-4f, cardLeft.position.y);
+                cardRight.transform.position = new Vector3(4f, cardRight.position.y);
+                for (int i = 0; i < objCount; i++)
+                    objLerps[i] = 1f / (objCount - 1) * i;
+                break;
+            case 5:
+                cardLeft.transform.position = new Vector3(-4.5f, cardLeft.position.y);
+                cardRight.transform.position = new Vector3(4.5f, cardRight.position.y);
+                for (int i = 0; i < objCount; i++)
+                    objLerps[i] = 1f / (objCount - 1) * i;
+                break;
+
             default:
                 float interval = 1f / (objCount - 1);
                 for (int i = 0; i < objCount; i++)

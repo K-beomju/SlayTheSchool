@@ -149,10 +149,10 @@ public class CardManager : Singleton<CardManager>
         if(isEnlarge)
         {
             Vector3 enlarPos = new Vector3(card.originPRS.pos.x, -4.8f, -10f);
-            card.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), false); 
+            card.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), true, 0.2f); 
         }
         else
-            card.MoveTransform(card.originPRS , false);
+            card.MoveTransform(card.originPRS, true, 0.2f);
 
         card.GetComponent<Order>().SetMostFrontOrder(isEnlarge); 
     }

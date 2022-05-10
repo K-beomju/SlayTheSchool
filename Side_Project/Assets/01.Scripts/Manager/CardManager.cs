@@ -12,19 +12,20 @@ public class CardManager : Singleton<CardManager>
     [SerializeField] private Transform cardLeft;
     [SerializeField] private Transform cardRight;
     private List<Item> itemBuffer;
-
+    public int cardCount; 
 
     private void Start()
     {
         SetupItemBuffer();
+        StartCoroutine(SpawnCardCo());
     }
 
-    private void Update()
+    private IEnumerator SpawnCardCo()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        for(int i = 0; i < cardCount; i++)
         {
             AddCard();
-
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -84,7 +85,7 @@ public class CardManager : Singleton<CardManager>
     void CardAlignment()
     {
         List<PRS> originCardPRss = new List<PRS>();
-        originCardPRss = RoundAlignment(cardLeft, cardRight, myCards.Count, 0.5f, Vector3.one * 1.9f);
+        originCardPRss = RoundAlignment(cardRight, cardLeft, myCards.Count, 0.5f, cardPrefab.transform.localScale);
 
         var targetCards = myCards; 
         for(int i = 0; i< targetCards.Count;i++)
@@ -92,7 +93,7 @@ public class CardManager : Singleton<CardManager>
             var targetCard = targetCards[i];
 
             targetCard.originPRS = originCardPRss[i];
-            targetCard.MoveTransform(targetCard.originPRS, true, 0.7f);
+            targetCard.MoveTransform(targetCard.originPRS, true, 0.3f);
         }
     }
 
@@ -100,11 +101,12 @@ public class CardManager : Singleton<CardManager>
     {
          float[] objLerps = new float[objCount];
         List<PRS>  results = new List<PRS>();
-        
+
         switch(objCount)
         {
+            
             case 0: objLerps = new float[] { 0.4f }; break;
-            case 1: objLerps = new float[] { 0.27f, 0.73f }; break;
+            case 1: objLerps = new float[] { 0.5f }; break;
             case 2: objLerps = new float[] { 0.1f, 0.5f, 0.9f }; break;
             default:
                 float interval = 1f / (objCount - 1);
@@ -117,10 +119,9 @@ public class CardManager : Singleton<CardManager>
         {
             var targetPos = Vector3.Lerp(leftTr.position, rightTr.position, objLerps[i]);
             var targetRot = Utils.QI;
-            if (objCount >= 2)
+            if (objCount >= 4)
             {
                 float curve = Mathf.Sqrt(Mathf.Pow(height, 2) - Mathf.Pow(objLerps[i] - 0.5f, 2));
-                curve = height >= 0 ? curve : -curve;
                 targetPos.y += curve; 
                 targetRot = Quaternion.Slerp(leftTr.rotation, rightTr.rotation, objLerps[i]);
             }
@@ -131,5 +132,31 @@ public class CardManager : Singleton<CardManager>
         return results;
     }
 
+    #region MyCard
 
+    public void CardMouseOver(Card card)
+    {
+        EnlargeCard(true, card);
+    }
+
+    public void CardMouseExit(Card card)
+    {
+        EnlargeCard(false, card);
+    }
+
+    private void EnlargeCard(bool isEnlarge, Card card)
+    {
+        if(isEnlarge)
+        {
+            Vector3 enlarPos = new Vector3(card.originPRS.pos.x, -4.8f, -10f);
+            card.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), false); 
+        }
+        else
+            card.MoveTransform(card.originPRS , false);
+
+        card.GetComponent<Order>().SetMostFrontOrder(isEnlarge); 
+    }
+
+    #endregion
 }
+

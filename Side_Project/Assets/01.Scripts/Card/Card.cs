@@ -44,6 +44,16 @@ public class Card : MonoBehaviour
         }
     }
 
+    void OnMouseOver()
+    {
+        CardManager.Instance.CardMouseOver(this);
+    }
+
+    void OnMouseExit()
+    {
+        CardManager.Instance.CardMouseExit(this);
+    }
+
     public void MoveTransform(PRS prs, bool useDotween , float dotWeenTime = 0)
     {
         if(useDotween)

@@ -48,6 +48,11 @@ public class CardManager : Singleton<CardManager>
             myCards[i].MoveTransform(new PRS(cardExitPoint.position, myCards[i].transform.rotation, cardPrefab.transform.localScale), true, 0.3f);
             yield return new WaitForSeconds(0.1f);
         }
+
+        for (int i = myCards.Count - 1; i >= 0; i--)
+        {
+              myCards.Remove(myCards[i]);
+        }
     }
 
    

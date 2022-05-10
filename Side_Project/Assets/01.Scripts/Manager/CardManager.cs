@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class CardManager : Singleton<CardManager>
 {
@@ -8,10 +11,18 @@ public class CardManager : Singleton<CardManager>
     [SerializeField] private GameObject cardPrefab;
 
     [SerializeField] private Transform cardSpawnPoint;
+    [SerializeField] private Transform cardExitPoint;
+
     [SerializeField] private List<Card> myCards;
     [SerializeField] private Transform cardLeft;
     [SerializeField] private Transform cardRight;
+
     private List<Item> itemBuffer;
+    private Card selectCard;
+
+    private bool isCardDrag;
+    private bool onCardArea;
+
     public int cardCount; 
 
     private void Start()
@@ -27,7 +38,19 @@ public class CardManager : Singleton<CardManager>
             AddCard();
             yield return new WaitForSeconds(0.2f);
         }
+
     }
+
+    private IEnumerator ExitCardCo()
+    {
+        for (int i = 0; i < myCards.Count; i++)
+        {
+            myCards[i].MoveTransform(new PRS(cardExitPoint.position, myCards[i].transform.rotation, cardPrefab.transform.localScale), true, 0.3f);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+   
 
     public Item PopItem()
     {
@@ -57,6 +80,24 @@ public class CardManager : Singleton<CardManager>
             itemBuffer[i] = itemBuffer[rand];
             itemBuffer[rand] = temp;
         }
+    }
+
+
+
+    private void Update()
+    {
+        if(isCardDrag)
+        {
+            CardDrag();
+        }
+        DetectCardArea();
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            StartCoroutine(ExitCardCo());
+
+        }
+
     }
 
     private void AddCard()
@@ -119,7 +160,7 @@ public class CardManager : Singleton<CardManager>
         {
             var targetPos = Vector3.Lerp(leftTr.position, rightTr.position, objLerps[i]);
             var targetRot = Utils.QI;
-            if (objCount >= 4)
+            if (objCount >= 3)
             {
                 float curve = Mathf.Sqrt(Mathf.Pow(height, 2) - Mathf.Pow(objLerps[i] - 0.5f, 2));
                 targetPos.y += curve; 
@@ -136,6 +177,7 @@ public class CardManager : Singleton<CardManager>
 
     public void CardMouseOver(Card card)
     {
+        selectCard = card;
         EnlargeCard(true, card);
     }
 
@@ -144,15 +186,53 @@ public class CardManager : Singleton<CardManager>
         EnlargeCard(false, card);
     }
 
+    public void CardMouseDown()
+    {
+        isCardDrag = true;
+    }
+
+    public void CardMouseUp()
+    {
+        isCardDrag = false;
+
+        if(!onCardArea)
+        {
+            Debug.Log(selectCard.item.name);
+
+            myCards.Remove(selectCard);
+            selectCard.transform.DOKill();
+            DestroyImmediate(selectCard.gameObject);
+            selectCard = null;
+            CardAlignment();
+
+        }
+    }
+
+    void CardDrag()
+    {
+        if(!onCardArea)
+        {
+            //selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
+            selectCard.transform.position = Utils.MousePos;
+        }
+    }
+
+    void DetectCardArea()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(Utils.MousePos, Vector3.forward);
+        int layer = LayerMask.NameToLayer("CardArea");
+        onCardArea = Array.Exists(hits, x => x.collider.gameObject.layer == layer);
+    }
+
     private void EnlargeCard(bool isEnlarge, Card card)
     {
         if(isEnlarge)
         {
-            Vector3 enlarPos = new Vector3(card.originPRS.pos.x, -4.8f, -10f);
-            card.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), true, 0.2f); 
+            Vector3 enlarPos = new Vector3(card.originPRS.pos.x, -4.3f, -10f);
+            card.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), false); 
         }
         else
-            card.MoveTransform(card.originPRS, true, 0.2f);
+            card.MoveTransform(card.originPRS, false);
 
         card.GetComponent<Order>().SetMostFrontOrder(isEnlarge); 
     }

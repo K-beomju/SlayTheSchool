@@ -31,7 +31,7 @@ public class Card : MonoBehaviour
             cardImage.sprite = this.item.sprite;
             nameTMP.text = this.item.name;
             costTMP.text = this.item.cost.ToString();
-            typeTMP.text = this.item.type;
+            typeTMP.text = this.item.type.ToString();
             descriptionTMP.text = this.item.description;
         }
         else

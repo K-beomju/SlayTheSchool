@@ -17,23 +17,31 @@ public class CardManager : Singleton<CardManager>
     [SerializeField] private Transform cardLeft;
     [SerializeField] private Transform cardRight;
 
-    private List<Item> itemBuffer;
+    public List<Item> itemBuffer { get; set; }
     private Card selectCard;
 
     private bool isCardDrag;
     private bool onCardArea;
 
-    public int cardCount; 
+    public static Action<int> pickCardAction = (x) => { };
+    public static Action<int> throwCardAction = (x) => { };
 
-    private void Start()
+    private int throwCount = 0;     // ¹ö¸°Ä«µå °¹¼ö
+    private int maxCardCount = 0;   // Ä«µå µ¦ ÃÖ´ë °¹¼ö
+
+    public int spawnCardCount;
+
+    protected override void Awake()
     {
+        base.Awake();
         SetupItemBuffer();
-        StartCoroutine(SpawnCardCo());
+        maxCardCount = itemBuffer.Count;
     }
+
 
     private IEnumerator SpawnCardCo()
     {
-        for(int i = 0; i < cardCount; i++)
+        for(int i = 0; i < spawnCardCount; i++)
         {
             AddCard();
             yield return new WaitForSeconds(0.2f);
@@ -46,6 +54,8 @@ public class CardManager : Singleton<CardManager>
         for (int i = 0; i < myCards.Count; i++)
         {
             myCards[i].MoveTransform(new PRS(cardExitPoint.position, myCards[i].transform.rotation, cardPrefab.transform.localScale), true, 0.3f);
+            throwCount++;
+            throwCardAction(throwCount);
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -71,14 +81,16 @@ public class CardManager : Singleton<CardManager>
     {
         itemBuffer = new List<Item>();
 
+        // ADD
         for(int i = 0; i < itemSO.items.Length; i++)
         {
             Item item = itemSO.items[i];
-            for(int j = 0; j < item.percent; j++)
+            for(int j = 0; j < item.count; j++)
                 itemBuffer.Add(item);
         }
         
-        for(int i = 0; i < itemBuffer.Count; i++)
+        // Shuffle
+        for(int i = 0; i < itemBuffer.Count; i++) 
         {
             int rand = Random.Range(i, itemBuffer.Count);
             Item temp = itemBuffer[i];
@@ -108,11 +120,22 @@ public class CardManager : Singleton<CardManager>
 
     private void AddCard()
     {
+        if (itemBuffer.Count == 0) // »ÌÀ» Ä«µå°¡ ¾ø´Ù¸é 
+        {
+            SetupItemBuffer(); // ´Ù½Ã »ÌÀ½ 
+
+            // Card Value Text Update
+            pickCardAction(itemBuffer.Count); 
+            throwCount = 0; // Reset
+            throwCardAction(throwCount);
+        }
+
         var cardObj = Instantiate(cardPrefab, cardSpawnPoint.position, Utils.QI);
         var card = cardObj.GetComponent<Card>();
         card.Setup(PopItem(), true);
         myCards.Add(card);
 
+        pickCardAction(itemBuffer.Count);
         SetOriginOrder();
         CardAlignment();
     }

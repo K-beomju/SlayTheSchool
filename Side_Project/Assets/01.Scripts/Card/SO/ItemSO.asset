@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - cost: 1
-    name: Dog
+    name: "\uB2E4\uB78C\uC950"
     sprite: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
-    type: Attack
-    description: This is a Dog.
-    attack: 1
-    defense: 0
-    percent: 1
-  - cost: 2
-    name: Cat
-    sprite: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
-    type: Skill
-    description: This is a Cat.
+    type: 0
+    description: "\uC8FD\uBC29\uC744 \uB0A0\uB824   <color=red>\uACF5\uACA9</color>\uD569\uB2C8\uB2E4."
     attack: 0
-    defense: 2
-    percent: 1
+    defense: 1
+    count: 5
+  - cost: 1
+    name: "\uD1B5\uB098\uBB34"
+    sprite: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
+    type: 1
+    description: "\uBC29\uC5B4\uB3C4 3 \uD68D\uB4DD"
+    attack: 0
+    defense: 3
+    count: 5

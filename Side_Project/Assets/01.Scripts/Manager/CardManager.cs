@@ -38,10 +38,16 @@ public class CardManager : Singleton<CardManager>
         maxCardCount = itemBuffer.Count;
     }
 
+    private void Start()
+    {
+        StartCoroutine(SpawnCardCo());
+    }
 
     private IEnumerator SpawnCardCo()
     {
-        for(int i = 0; i < spawnCardCount; i++)
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < spawnCardCount; i++)
         {
             AddCard();
             yield return new WaitForSeconds(0.2f);
@@ -248,14 +254,14 @@ public class CardManager : Singleton<CardManager>
 
         if(!onCardArea)
         {
-            Debug.Log(selectCard.item.name);
-
             myCards.Remove(selectCard);
             selectCard.transform.DOKill();
             DestroyImmediate(selectCard.gameObject);
             selectCard = null;
             CardAlignment();
 
+            throwCount++;
+            throwCardAction(throwCount);
         }
     }
 

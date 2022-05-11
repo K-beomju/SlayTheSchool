@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class CardThrowButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardThrowButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private GameObject throwPanel;
     [SerializeField] private GameObject throwDecPanel;
@@ -30,6 +30,16 @@ public class CardThrowButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerExit(PointerEventData eventData)
     {
         throwDecPanel.SetActive(false);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (throwPanel != null)
+            throwPanel.gameObject.SetActive(true);
+
+
+        if (throwDecPanel.activeSelf)
+            throwDecPanel.SetActive(false);
     }
 
     public void DetativePanel()

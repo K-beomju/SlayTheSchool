@@ -18,6 +18,7 @@ public class CardManager : Singleton<CardManager>
     [SerializeField] private Transform cardRight;
 
     public List<Item> itemBuffer { get; set; }
+    private List<Card> itemPick;
     private Card selectCard;
 
     private bool isCardDrag;
@@ -40,7 +41,7 @@ public class CardManager : Singleton<CardManager>
 
     private void Start()
     {
-        StartCoroutine(SpawnCardCo());
+        // StartCoroutine(SpawnCardCo());
     }
 
     private IEnumerator SpawnCardCo()
@@ -67,11 +68,11 @@ public class CardManager : Singleton<CardManager>
 
         for (int i = myCards.Count - 1; i >= 0; i--)
         {
-              myCards.Remove(myCards[i]);
+            myCards.Remove(myCards[i]);
         }
     }
 
-   
+
 
     public Item PopItem()
     {
@@ -86,22 +87,36 @@ public class CardManager : Singleton<CardManager>
     private void SetupItemBuffer()
     {
         itemBuffer = new List<Item>();
+        itemPick = new List<Card>();
 
         // ADD
-        for(int i = 0; i < itemSO.items.Length; i++)
+        for (int i = 0; i < itemSO.items.Length; i++)
         {
             Item item = itemSO.items[i];
-            for(int j = 0; j < item.count; j++)
+            for (int j = 0; j < item.count; j++)
                 itemBuffer.Add(item);
         }
-        
+
+
         // Shuffle
-        for(int i = 0; i < itemBuffer.Count; i++) 
+        for (int i = 0; i < itemBuffer.Count; i++)
         {
             int rand = Random.Range(i, itemBuffer.Count);
             Item temp = itemBuffer[i];
             itemBuffer[i] = itemBuffer[rand];
             itemBuffer[rand] = temp;
+
+        }
+
+        // Pick Deck
+        for (int i = 0; i < itemBuffer.Count; i++)
+        {
+            var cardObj = Instantiate(cardPrefab, new Vector3(i + i - 9,-10,0), Utils.QI);
+            var card = cardObj.GetComponent<Card>();
+            card.Setup(itemBuffer[i], true);
+            card?.GetComponent<Order>().SetOriginOrder(i);
+            itemPick.Add(card);
+
         }
     }
 
@@ -109,18 +124,18 @@ public class CardManager : Singleton<CardManager>
 
     private void Update()
     {
-        if(isCardDrag)
+        if (isCardDrag)
         {
             CardDrag();
         }
         DetectCardArea();
 
 
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
             AddCard();
-        if(Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
             StartCoroutine(ExitCardCo());
-        
+
 
     }
 
@@ -131,7 +146,7 @@ public class CardManager : Singleton<CardManager>
             SetupItemBuffer(); // ¥ŸΩ√ ªÃ¿Ω 
 
             // Card Value Text Update
-            pickCardAction(itemBuffer.Count); 
+            pickCardAction(itemBuffer.Count);
             throwCount = 0; // Reset
             throwCardAction(throwCount);
         }
@@ -150,10 +165,10 @@ public class CardManager : Singleton<CardManager>
     {
         int count = myCards.Count;
 
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
             var targetCard = myCards[i];
-            targetCard?.GetComponent<Order>().SetOriginOrder(i); 
+            targetCard?.GetComponent<Order>().SetOriginOrder(i);
         }
     }
 
@@ -163,8 +178,8 @@ public class CardManager : Singleton<CardManager>
         List<PRS> originCardPRss = new List<PRS>();
         originCardPRss = RoundAlignment(cardRight, cardLeft, myCards.Count, 0.5f, cardPrefab.transform.localScale);
 
-        var targetCards = myCards; 
-        for(int i = 0; i< targetCards.Count;i++)
+        var targetCards = myCards;
+        for (int i = 0; i < targetCards.Count; i++)
         {
             var targetCard = targetCards[i];
 
@@ -175,18 +190,18 @@ public class CardManager : Singleton<CardManager>
 
     List<PRS> RoundAlignment(Transform leftTr, Transform rightTr, int objCount, float height, Vector3 scale)
     {
-         float[] objLerps = new float[objCount];
-        List<PRS>  results = new List<PRS>();
+        float[] objLerps = new float[objCount];
+        List<PRS> results = new List<PRS>();
 
-        switch(objCount)
+        switch (objCount)
         {
-            
+
             case 0: objLerps = new float[] { 0.5f }; break;
             case 1: objLerps = new float[] { 0.5f }; break;
             case 2:
                 cardLeft.transform.position = new Vector3(-1.5f, cardLeft.position.y);
                 cardRight.transform.position = new Vector3(1.5f, cardRight.position.y);
-                objLerps = new float[] { 0.1f, 0.9f }; 
+                objLerps = new float[] { 0.1f, 0.9f };
                 break;
             case 3:
                 cardLeft.transform.position = new Vector3(-3f, cardLeft.position.y);
@@ -213,14 +228,14 @@ public class CardManager : Singleton<CardManager>
                 break;
         }
 
-        for(int i = 0; i < objCount; i++)
+        for (int i = 0; i < objCount; i++)
         {
             var targetPos = Vector3.Lerp(leftTr.position, rightTr.position, objLerps[i]);
             var targetRot = Utils.QI;
             if (objCount >= 2)
             {
                 float curve = Mathf.Sqrt(Mathf.Pow(height, 2) - Mathf.Pow(objLerps[i] - 0.5f, 2));
-                targetPos.y += curve; 
+                targetPos.y += curve;
                 targetRot = Quaternion.Slerp(leftTr.rotation, rightTr.rotation, objLerps[i]);
             }
 
@@ -252,9 +267,12 @@ public class CardManager : Singleton<CardManager>
     {
         isCardDrag = false;
 
-        if(!onCardArea)
+        if (!onCardArea)
         {
+            int idx = myCards.IndexOf(selectCard);
             myCards.Remove(selectCard);
+             itemPick.RemoveAt(idx);
+
             selectCard.transform.DOKill();
             DestroyImmediate(selectCard.gameObject);
             selectCard = null;
@@ -262,12 +280,13 @@ public class CardManager : Singleton<CardManager>
 
             throwCount++;
             throwCardAction(throwCount);
+
         }
     }
 
     void CardDrag()
     {
-        if(!onCardArea)
+        if (!onCardArea)
         {
             selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
         }
@@ -282,15 +301,15 @@ public class CardManager : Singleton<CardManager>
 
     private void EnlargeCard(bool isEnlarge, Card card)
     {
-        if(isEnlarge)
+        if (isEnlarge)
         {
             Vector3 enlarPos = new Vector3(card.originPRS.pos.x, -4.3f, -10f);
-            card.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), false); 
+            card.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), false);
         }
         else
             card.MoveTransform(card.originPRS, false);
 
-        card.GetComponent<Order>().SetMostFrontOrder(isEnlarge); 
+        card.GetComponent<Order>().SetMostFrontOrder(isEnlarge);
     }
 
     #endregion

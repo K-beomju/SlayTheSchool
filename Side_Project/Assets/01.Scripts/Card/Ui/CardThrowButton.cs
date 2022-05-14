@@ -9,7 +9,7 @@ public class CardThrowButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     [SerializeField] private GameObject throwPanel;
     [SerializeField] private GameObject throwDecPanel;
-    [SerializeField] private Button exitButton;
+    //[SerializeField] private Button exitButton;
 
 
     private void Start()
@@ -18,7 +18,7 @@ public class CardThrowButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
             throwDecPanel = GameObject.Find("ThrowPanel");
 
         throwDecPanel.SetActive(false);
-        exitButton.onClick.AddListener(DetativePanel);
+        //exitButton.onClick.AddListener(DetativePanel);
 
     }
 
@@ -34,16 +34,16 @@ public class CardThrowButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (throwPanel != null)
-            throwPanel.gameObject.SetActive(true);
+        //if (throwPanel != null)
+        //    throwPanel.gameObject.SetActive(true);
 
 
         if (throwDecPanel.activeSelf)
             throwDecPanel.SetActive(false);
     }
 
-    public void DetativePanel()
-    {
-        throwPanel.gameObject.SetActive(false);
-    }
+    //public void DetativePanel()
+    //{
+    //    throwPanel.gameObject.SetActive(false);
+    //}
 }

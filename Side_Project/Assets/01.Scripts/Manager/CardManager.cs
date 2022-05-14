@@ -18,7 +18,6 @@ public class CardManager : Singleton<CardManager>
     [SerializeField] private Transform cardRight;
 
     public List<Item> itemBuffer { get; set; }
-    private List<Card> itemPick;
     private Card selectCard;
 
     private bool isCardDrag;
@@ -27,21 +26,13 @@ public class CardManager : Singleton<CardManager>
     public static Action<int> pickCardAction = (x) => { };
     public static Action<int> throwCardAction = (x) => { };
 
-    private int throwCount = 0;     // ¹ö¸°Ä«µå °¹¼ö
-    private int maxCardCount = 0;   // Ä«µå µ¦ ÃÖ´ë °¹¼ö
-
-    public int spawnCardCount;
+    private int throwCount = 0;     // ¹ö¸° Ä«µå °¹¼ö
+    public int spawnCardCount;      // »ý¼ºÇÒ Ä«µå °¹¼ö 
 
     protected override void Awake()
     {
         base.Awake();
         SetupItemBuffer();
-        maxCardCount = itemBuffer.Count;
-    }
-
-    private void Start()
-    {
-        // StartCoroutine(SpawnCardCo());
     }
 
     private IEnumerator SpawnCardCo()
@@ -68,6 +59,7 @@ public class CardManager : Singleton<CardManager>
 
         for (int i = myCards.Count - 1; i >= 0; i--)
         {
+            myCards[i].SetDeleteObject();   
             myCards.Remove(myCards[i]);
         }
     }
@@ -87,7 +79,6 @@ public class CardManager : Singleton<CardManager>
     private void SetupItemBuffer()
     {
         itemBuffer = new List<Item>();
-        itemPick = new List<Card>();
 
         // ADD
         for (int i = 0; i < itemSO.items.Length; i++)
@@ -96,7 +87,6 @@ public class CardManager : Singleton<CardManager>
             for (int j = 0; j < item.count; j++)
                 itemBuffer.Add(item);
         }
-
 
         // Shuffle
         for (int i = 0; i < itemBuffer.Count; i++)
@@ -107,19 +97,7 @@ public class CardManager : Singleton<CardManager>
             itemBuffer[rand] = temp;
 
         }
-
-        // Pick Deck
-        for (int i = 0; i < itemBuffer.Count; i++)
-        {
-            var cardObj = Instantiate(cardPrefab, new Vector3(i + i - 9,-10,0), Utils.QI);
-            var card = cardObj.GetComponent<Card>();
-            card.Setup(itemBuffer[i], true);
-            card?.GetComponent<Order>().SetOriginOrder(i);
-            itemPick.Add(card);
-
-        }
     }
-
 
 
     private void Update()
@@ -135,8 +113,6 @@ public class CardManager : Singleton<CardManager>
             AddCard();
         if (Input.GetKeyDown(KeyCode.Alpha2))
             StartCoroutine(ExitCardCo());
-
-
     }
 
     private void AddCard()
@@ -157,7 +133,6 @@ public class CardManager : Singleton<CardManager>
         myCards.Add(card);
 
         pickCardAction(itemBuffer.Count);
-        SetOriginOrder();
         CardAlignment();
     }
 
@@ -171,7 +146,6 @@ public class CardManager : Singleton<CardManager>
             targetCard?.GetComponent<Order>().SetOriginOrder(i);
         }
     }
-
 
     void CardAlignment()
     {
@@ -269,12 +243,11 @@ public class CardManager : Singleton<CardManager>
 
         if (!onCardArea)
         {
-            int idx = myCards.IndexOf(selectCard);
             myCards.Remove(selectCard);
-             itemPick.RemoveAt(idx);
 
             selectCard.transform.DOKill();
             DestroyImmediate(selectCard.gameObject);
+
             selectCard = null;
             CardAlignment();
 

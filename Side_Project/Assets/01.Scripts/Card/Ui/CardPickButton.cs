@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CardPickButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,IPointerClickHandler
 {
-    [SerializeField] private GameObject pickPanel;
+    //[SerializeField] private GameObject pickPanel;
     [SerializeField] private GameObject picDecPanel;
     [SerializeField] private Button exitButton;
 
@@ -16,7 +16,7 @@ public class CardPickButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             picDecPanel = GameObject.Find("PickPanel");
 
         picDecPanel.SetActive(false);
-        exitButton.onClick.AddListener(DetativePanel);
+        //exitButton.onClick.AddListener(DetativePanel);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -31,16 +31,16 @@ public class CardPickButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(pickPanel != null)
-            pickPanel.gameObject.SetActive(true);
+        //if(pickPanel != null)
+        //    pickPanel.gameObject.SetActive(true);
 
 
         if (picDecPanel.activeSelf)
             picDecPanel.SetActive(false);
     }
 
-    public void DetativePanel()
-    {
-        pickPanel.gameObject.SetActive(false);
-    }
+    //public void DetativePanel()
+    //{
+    //    pickPanel.gameObject.SetActive(false);
+    //}
 }

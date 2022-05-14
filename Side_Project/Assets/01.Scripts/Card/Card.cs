@@ -64,6 +64,11 @@ public class Card : MonoBehaviour
         CardManager.Instance.CardMouseUp();
     }
 
+    public void SetDeleteObject()
+    {
+        Destroy(gameObject, 1);
+    }
+
     public void MoveTransform(PRS prs, bool useDotween , float dotWeenTime = 0)
     {
         if(useDotween)

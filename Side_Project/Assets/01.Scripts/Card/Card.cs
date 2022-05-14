@@ -11,8 +11,8 @@ public class Card : MonoBehaviour
 
     [SerializeField] private TMP_Text costTMP;
     [SerializeField] private TMP_Text nameTMP;
-    [SerializeField] private TMP_Text typeTMP;
-    [SerializeField] private TMP_Text descriptionTMP;
+    //[SerializeField] private TMP_Text typeTMP;
+    //[SerializeField] private TMP_Text descriptionTMP;
     [SerializeField] private TMP_Text attackTMP;
     [SerializeField] private TMP_Text heartTMP;
 
@@ -34,7 +34,7 @@ public class Card : MonoBehaviour
             nameTMP.text = this.item.name;
             costTMP.text = this.item.cost.ToString();
             //typeTMP.text = this.item.type.ToString();
-            descriptionTMP.text = this.item.description;
+            //descriptionTMP.text = this.item.description;
             attackTMP.text = this.item.attack.ToString();
             heartTMP.text = this.item.hp.ToString();
         }
@@ -42,8 +42,8 @@ public class Card : MonoBehaviour
         {
             nameTMP.text = "";
             costTMP.text = "";
-            typeTMP.text = "";
-            descriptionTMP.text = "";
+            //typeTMP.text = "";
+            //descriptionTMP.text = "";
         }
     }
 

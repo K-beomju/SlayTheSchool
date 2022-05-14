@@ -12,7 +12,7 @@ public class BezeirArrows : MonoBehaviour
     private RectTransform origin;
     private List<RectTransform> arrowBodys = new List<RectTransform>();
     private List<Vector2> controlPoints = new List<Vector2>();
-    private readonly List<Vector2> controlPointFactors = new List<Vector2>() { new Vector2(-0.3f, 0.8f), new Vector2(0.1f, 1.4f) };
+    private readonly List<Vector2> controlPointFactors = new List<Vector2>() { new Vector2(0f, 0.6f), new Vector2(0.1f, 1.2f) };
 
     private void Awake()
     {

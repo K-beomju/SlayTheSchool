@@ -21,15 +21,15 @@ public class EntityManager : Singleton<EntityManager>
 
     private void EntityAlignMent()
     {
-        float targetY = 2f;
+        float targetY = 1.5f;
 
         for (int i = 0; i < myEntitys.Count; i++)
         {
-            float targetX = (myEntitys.Count - 1) * -3.4f + i * 3f;
+            float targetX = (myEntitys.Count - 1) * -3.4f + i * 3f - 1f;
 
             var targetEntity = myEntitys[i];
             targetEntity.originPos = new Vector3(targetX, targetY, 0);
-            targetEntity.MoveTransform(targetEntity.originPos, true, 0.5f);
+            targetEntity.MoveTransform(targetEntity.originPos, true, 0.3f);
             targetEntity.GetComponent<Order>()?.SetOriginOrder(i);
         }
 

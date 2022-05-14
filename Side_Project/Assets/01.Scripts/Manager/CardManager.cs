@@ -282,7 +282,6 @@ public class CardManager : Singleton<CardManager>
         }
         else
         {
-            Debug.Log(onCardArea);
 
             TryPutCard();
         }

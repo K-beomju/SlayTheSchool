@@ -13,8 +13,10 @@ public class Card : MonoBehaviour
     [SerializeField] private TMP_Text nameTMP;
     [SerializeField] private TMP_Text typeTMP;
     [SerializeField] private TMP_Text descriptionTMP;
+    [SerializeField] private TMP_Text attackTMP;
+    [SerializeField] private TMP_Text heartTMP;
 
-    [SerializeField] private Sprite cardBack;
+
 
     public Item item;
     public PRS originPRS;
@@ -31,12 +33,13 @@ public class Card : MonoBehaviour
             cardImage.sprite = this.item.sprite;
             nameTMP.text = this.item.name;
             costTMP.text = this.item.cost.ToString();
-            typeTMP.text = this.item.type.ToString();
+            //typeTMP.text = this.item.type.ToString();
             descriptionTMP.text = this.item.description;
+            attackTMP.text = this.item.attack.ToString();
+            heartTMP.text = this.item.hp.ToString();
         }
         else
         {
-            card.sprite = cardBack;
             nameTMP.text = "";
             costTMP.text = "";
             typeTMP.text = "";

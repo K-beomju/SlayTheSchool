@@ -5,20 +5,26 @@ using MEC;
 
 public class GameManager : Singleton<GameManager>
 {
+    public RectTransform canvas;
+
+    [Header("Pooling Objs")]
+    [SerializeField] private GameObject hpBarPrefab;
+
+    private ObjectPooling<EntityHPbar> barPool;
+
+
     protected override void Awake()
     {
         base.Awake();
+        barPool = new ObjectPooling<EntityHPbar>(hpBarPrefab, canvas, 3);
+
     }
 
-    private void Start()
+    public static EntityHPbar GetEntityHPBar() 
     {
+        return Instance.barPool.GetOrCreate();
     }
 
 
-    // More Effective Coroutine Guide
-    // Timing.RunCoroutine(_TimeCo());
-    // private IEnumerator<float> _TimeCo()
-    // {
-    //     yield return Timing.WaitForSeconds(3f);
-    // }
+
 }

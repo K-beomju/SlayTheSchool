@@ -31,4 +31,10 @@ public class Utils
             return result;
         }
     }
+
+    public static Vector3 ScreenTransform(Transform trm, Vector3 offset)
+    {
+        Vector3 pos = Camera.main.WorldToScreenPoint(trm.position + offset);
+        return pos;
+    }
 }

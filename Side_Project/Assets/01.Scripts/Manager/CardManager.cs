@@ -19,9 +19,10 @@ public class CardManager : Singleton<CardManager>
 
     public List<Item> itemBuffer { get; set; }
     private Card selectCard;
-
     private bool isCardDrag;
     private bool onCardArea;
+    private int myPutCount;
+
 
     public static Action<int> pickCardAction = (x) => { };
     public static Action<int> throwCardAction = (x) => { };
@@ -219,6 +220,39 @@ public class CardManager : Singleton<CardManager>
         return results;
     }
 
+
+    public bool TryPutCard()
+    {
+        //if (myPutCount >= 1)
+        //    return false;
+
+
+        Card card = selectCard;
+        var spawnPos = Utils.MousePos;
+        var targetCards = myCards;  
+
+        if(EntityManager.Instance.SpawnEntity(card.item, spawnPos))
+        {
+            targetCards.Remove(card);
+            selectCard.transform.DOKill();
+            DestroyImmediate(selectCard.gameObject);
+
+            selectCard = null;
+            CardAlignment();
+            //myPutCount++;
+
+            throwCount++;
+            throwCardAction(throwCount);
+            return true;
+        }
+        else
+        {
+            targetCards.ForEach(x => x.GetComponent<Order>().SetMostFrontOrder(false));
+            CardAlignment();
+            return false;
+        }
+    }
+
     #region MyCard
 
     public void CardMouseOver(Card card)
@@ -241,20 +275,18 @@ public class CardManager : Singleton<CardManager>
     {
         isCardDrag = false;
 
-        if (!onCardArea)
+        if (onCardArea)
         {
-            myCards.Remove(selectCard);
-
-            selectCard.transform.DOKill();
-            DestroyImmediate(selectCard.gameObject);
-
-            selectCard = null;
-            CardAlignment();
-
-            throwCount++;
-            throwCardAction(throwCount);
-
+        Debug.Log(onCardArea);
+            EntityManager.Instance.RemoveMyEmptyEntity();
         }
+        else
+        {
+            Debug.Log(onCardArea);
+
+            TryPutCard();
+        }
+     
     }
 
     void CardDrag()
@@ -262,6 +294,7 @@ public class CardManager : Singleton<CardManager>
         if (!onCardArea)
         {
             selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
+            EntityManager.Instance.InsertMyEmptyEntity(Utils.MousePos.x);
         }
     }
 

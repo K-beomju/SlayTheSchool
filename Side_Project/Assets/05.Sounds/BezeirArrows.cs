@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BezeirArrows : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class BezeirArrows : MonoBehaviour
 
     private void Awake()
     {
+       
         this.origin = this.GetComponent<RectTransform>();
 
         for(int i = 0; i < this.arrowBodyNum; i++)

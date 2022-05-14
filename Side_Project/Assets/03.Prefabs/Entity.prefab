@@ -331,7 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6132087a0aeece74f8417f063bad3ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initHealth: 0
+  curHp: 0
+  maxHp: 0
   dead: 0
   offset: {x: 0, y: -2, z: 0}
 --- !u!114 &8690155631735074600

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public abstract class LivingEntity : MonoBehaviour, IDamageable
 {
-    public int initHealth;
-    public int hp { get; protected set; }
+    public int curHp;
+    public int maxHp;
 
     public bool dead;
     public event Action OnDeath;
@@ -22,14 +22,14 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     {
         Debug.Log("부모 메서드 실행");
         dead = false;
-        hp = initHealth;
+        curHp = maxHp;
     }
 
     public virtual void OnDamage(int damage)
     {
-        hp -= damage;
+        curHp -= damage;
 
-        if (hp <= 0 && !dead)
+        if (curHp <= 0 && !dead)
         {
             Die();
         }

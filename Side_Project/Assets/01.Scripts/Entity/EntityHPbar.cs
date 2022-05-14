@@ -16,13 +16,13 @@ public class EntityHPbar : MonoBehaviour
         rTr = GetComponent<RectTransform>();
     }
 
-    public void SetValue(float value)
+    public void SetValue(float health, float maxhelath)
     {
         if (co != null)
         {
             StopCoroutine(co);
         }
-        co = StartCoroutine(DamageReduce(value));
+        co = StartCoroutine(DamageReduce(health, maxhelath));
 
     }
 
@@ -33,17 +33,10 @@ public class EntityHPbar : MonoBehaviour
 
 
 
-    IEnumerator DamageReduce(float value)
+    IEnumerator DamageReduce(float curHp, float maxHp)
     {
-        while (true)
-        {
-            slider.value = value; //Mathf.Lerp(slider.value, value,  reduceFactor);
-            if (Mathf.Abs(slider.value - value) < 0.1f)
-            {
-                yield break; // 종료
-            }
-            yield return null; // null 반환
-        }
+          slider.value = curHp / maxHp; 
+          yield return null; 
     }
 
 

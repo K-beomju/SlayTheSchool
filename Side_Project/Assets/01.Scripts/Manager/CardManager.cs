@@ -277,7 +277,6 @@ public class CardManager : Singleton<CardManager>
 
         if (onCardArea)
         {
-        Debug.Log(onCardArea);
             EntityManager.Instance.RemoveMyEmptyEntity();
         }
         else

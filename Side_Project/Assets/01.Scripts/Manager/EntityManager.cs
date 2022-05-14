@@ -29,8 +29,9 @@ public class EntityManager : Singleton<EntityManager>
 
             var targetEntity = myEntitys[i];
             targetEntity.originPos = new Vector3(targetX, targetY, 0);
-            targetEntity.MoveTransform(targetEntity.originPos, true, 0.3f);
+            targetEntity.MoveTransform(targetEntity.originPos, false);
             targetEntity.GetComponent<Order>()?.SetOriginOrder(i);
+            targetEntity.GetComponent<PlayerHealth>()?.ActiveMove();
         }
 
     }

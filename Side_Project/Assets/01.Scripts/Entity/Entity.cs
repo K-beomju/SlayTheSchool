@@ -13,7 +13,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private TMP_Text attackTMP;
     [SerializeField] private TMP_Text healthTMP;
 
-    private PlayerHealth ph;
+    public PlayerHealth ph { get; set; }
 
     public int attack;
     public int health;
@@ -43,7 +43,7 @@ public class Entity : MonoBehaviour
         if (useDotween)
             transform.DOMove(pos, dotweenTime).OnComplete(() =>
             {
-                if (ph != null) ph.isSpawn = true;
+                if (ph != null) ph.isMove = true;
             });
         else
             transform.position = pos;

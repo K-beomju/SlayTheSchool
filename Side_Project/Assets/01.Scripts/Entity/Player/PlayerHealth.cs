@@ -6,7 +6,7 @@ public class PlayerHealth : LivingEntity
 {
     #region SerializeField Fields
     [SerializeField] private Vector3 offset;
-    public bool isSpawn { get; set; }
+    public bool isMove { get; set; }
 
     #endregion
 
@@ -25,22 +25,37 @@ public class PlayerHealth : LivingEntity
 
     protected override void Start()
     {
-        entity.health = initHealth;
-        isSpawn = false;
+        maxHp = entity.health;
+        base.Start();
+        isMove = false;
         hpbar = GameManager.GetEntityHPBar();
+        hpbar.Reset(this.transform.position + offset, curHp);
+
     }
 
     private void Update()
     {
-        if(!isSpawn)
-        hpbar.Reset(Utils.ScreenTransform(this.transform, offset), 1);
+        if(!isMove)
+        hpbar.SetPosition(this.transform.position + offset);
         
     }
 
+    public void ActiveMove()
+    {
+        isMove = false;
+    }
+
+    [ContextMenu("123123")]
+    public void Test()
+    {
+        OnDamage(1);
+    }
 
 
     public override void OnDamage(int damage)
     {
+        base.OnDamage(damage);
+        hpbar.SetValue(curHp, maxHp);
 
     }
 

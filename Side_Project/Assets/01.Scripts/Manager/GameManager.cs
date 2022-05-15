@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-
     [SerializeField] private GameObject attackEffect;
     private ObjectPooling<SkillObject> attackPool;
+    [SerializeField] private GameObject damageText;
+    private ObjectPooling<DamageText> damageTxtPool;
 
     protected override void Awake()
     {
         base.Awake();
         attackPool = new ObjectPooling<SkillObject>(attackEffect, this.transform, 5);
+        damageTxtPool = new ObjectPooling<DamageText>(damageText, this.transform, 5);
+
     }
 
     public static SkillObject GetAttackEffect()
@@ -21,4 +24,8 @@ public class GameManager : Singleton<GameManager>
     }
 
 
+    public static DamageText GetDamageText()
+    {
+        return Instance.damageTxtPool.GetOrCreate();
+    }
 }

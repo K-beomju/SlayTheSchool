@@ -35,6 +35,8 @@ public class CardManager : Singleton<CardManager>
     private int cost;
 
     [SerializeField] private GameObject bezierArrow;
+    [SerializeField] private GameObject targetSlot;
+
 
     protected override void Awake()
     {
@@ -274,6 +276,7 @@ public class CardManager : Singleton<CardManager>
         throwCount++;
         throwCardAction(throwCount);
 
+        targetSlot.SetActive(false);
 
 
         return true;
@@ -365,7 +368,7 @@ public class CardManager : Singleton<CardManager>
 
     public bool isAttackCardArea()
     {
-        if(selectCard == null) return false;
+        if(selectCard == null) return false;    
 
         if(selectCard.item.type == TypeEnum.АјАн && isCardDrag && !onCardArea)
         {

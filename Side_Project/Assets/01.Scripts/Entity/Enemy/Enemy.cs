@@ -5,6 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject targetSlot;
+    private void Start()
+    {
+        Debug.Log(Camera.main.ScreenToWorldPoint(transform.position));
+
+    }
     void OnMouseEnter()
     {
         if (CardManager.Instance.isAttackCardArea())
@@ -12,7 +17,7 @@ public class Enemy : MonoBehaviour
             targetSlot.SetActive(true);
         }
 
-    }
+    } 
 
     void OnMouseExit()
     {

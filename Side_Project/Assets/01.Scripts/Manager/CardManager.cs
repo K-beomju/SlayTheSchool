@@ -269,6 +269,8 @@ public class CardManager : Singleton<CardManager>
                     attackEffect = GameManager.GetAttackEffect();
                     attackEffect.SetPositionData(new Vector3(hit.transform.position.x - 0.3f,
                         hit.transform.position.y + 0.5f, 0), Utils.QI);
+
+                    FindObjectOfType<Player>().AttackMovement();
                 }
                 break;
         }

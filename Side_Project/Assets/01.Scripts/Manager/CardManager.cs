@@ -362,5 +362,16 @@ public class CardManager : Singleton<CardManager>
     }
 
     #endregion
+
+    public bool isAttackCardArea()
+    {
+        if(selectCard == null) return false;
+
+        if(selectCard.item.type == TypeEnum.АјАн && isCardDrag && !onCardArea)
+        {
+            return true;
+        }
+        return false;
+    }
 }
 

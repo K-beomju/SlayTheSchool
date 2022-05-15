@@ -36,6 +36,11 @@ public class CardManager : Singleton<CardManager>
         SetupItemBuffer();
     }
 
+    private void Start()
+    {
+        StartCoroutine(SpawnCardCo());
+    }
+
     private IEnumerator SpawnCardCo()
     {
         yield return new WaitForSeconds(1f);
@@ -60,7 +65,7 @@ public class CardManager : Singleton<CardManager>
 
         for (int i = myCards.Count - 1; i >= 0; i--)
         {
-            myCards[i].SetDeleteObject();   
+            myCards[i].SetDeleteObject();
             myCards.Remove(myCards[i]);
         }
     }
@@ -225,34 +230,39 @@ public class CardManager : Singleton<CardManager>
 
     public bool TryPutCard()
     {
-        //if (myPutCount >= 1)
-        //    return false;
+        
 
 
-        Card card = selectCard;
-        var spawnPos = Utils.MousePos;
-        var targetCards = myCards;  
+        myCards.Remove(selectCard);
+        selectCard.transform.DOKill();
+        DestroyImmediate(selectCard.gameObject);
 
-        //if(EntityManager.Instance.SpawnEntity(card.item, spawnPos))
-        //{
-            targetCards.Remove(card);
-            selectCard.transform.DOKill();
-            DestroyImmediate(selectCard.gameObject);
+        selectCard = null;
+        CardAlignment();
 
-            selectCard = null;
+        throwCount++;
+        throwCardAction(throwCount);
+
+
+
+        return true;
+
+
+
+        /*
+        if (myPutCount >= 1)
+            return false;
+        myPutCount++;
+        if(EntityManager.Instance.SpawnEntity(card.item, spawnPos))
+        {
+        }
+        else
+        {
+            targetCards.ForEach(x => x.GetComponent<Order>().SetMostFrontOrder(false));
             CardAlignment();
-            //myPutCount++;
-
-            throwCount++;
-            throwCardAction(throwCount);
-            return true;
-        //}
-        //else
-        //{
-        //    targetCards.ForEach(x => x.GetComponent<Order>().SetMostFrontOrder(false));
-        //    CardAlignment();
-        //    return false;
-        //}
+            return false;
+        }
+        */
     }
 
     #region MyCard
@@ -286,7 +296,7 @@ public class CardManager : Singleton<CardManager>
 
             TryPutCard();
         }
-     
+
     }
 
     void CardDrag()

@@ -1,50 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-using DG.Tweening;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using TMPro;
+//using DG.Tweening;
 
-public class Entity : MonoBehaviour
-{
-    [SerializeField] private Item item;
-    [SerializeField] private SpriteRenderer character;
+//public class Entity : MonoBehaviour
+//{
+//    [SerializeField] private Item item;
+//    [SerializeField] private SpriteRenderer character;
 
-    [SerializeField] private TMP_Text nameTMP;
-    [SerializeField] private TMP_Text attackTMP;
-    [SerializeField] private TMP_Text defenceTMP;
+//    [SerializeField] private TMP_Text nameTMP;
+//    [SerializeField] private TMP_Text attackTMP;
+//    [SerializeField] private TMP_Text defenceTMP;
 
-    public PlayerHealth ph { get; set; }
+//    public PlayerHealth ph { get; set; }
 
-    public int attack;
-    public int health;
-    public Vector3 originPos;
-    public bool isBossOrEmpty;
+//    public int attack;
+//    public int health;
+//    public Vector3 originPos;
+//    public bool isBossOrEmpty;
 
-    private void Awake()
-    {
-        ph = GetComponent<PlayerHealth>();
-    }
+//    private void Awake()
+//    {
+//        ph = GetComponent<PlayerHealth>();
+//    }
 
-    public void SetUp(Item item)
-    {
-        attack = item.attack;
+//    public void SetUp(Item item)
+//    {
+//        attack = item.attack;
 
-        this.item = item;
-        character.sprite = this.item.sprite;
-        nameTMP.text = this.item.name;
+//        this.item = item;
+//        character.sprite = this.item.sprite;
+//        nameTMP.text = this.item.name;
 
-        attackTMP.text = attack.ToString();
-        defenceTMP.text = health.ToString();
-    }
+//        attackTMP.text = attack.ToString();
+//        defenceTMP.text = health.ToString();
+//    }
 
-    public void MoveTransform(Vector3 pos , bool useDotween, float dotweenTime = 0)
-    {
-        if (useDotween)
-            transform.DOMove(pos, dotweenTime).OnComplete(() =>
-            {
-                if (ph != null) ph.isMove = true;
-            });
-        else
-            transform.position = pos;
-    }
-}
+//    public void MoveTransform(Vector3 pos , bool useDotween, float dotweenTime = 0)
+//    {
+//        if (useDotween)
+//            transform.DOMove(pos, dotweenTime).OnComplete(() =>
+//            {
+//                if (ph != null) ph.isMove = true;
+//            });
+//        else
+//            transform.position = pos;
+//    }
+//}

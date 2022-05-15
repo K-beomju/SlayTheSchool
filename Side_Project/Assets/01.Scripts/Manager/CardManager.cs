@@ -231,8 +231,8 @@ public class CardManager : Singleton<CardManager>
         var spawnPos = Utils.MousePos;
         var targetCards = myCards;  
 
-        if(EntityManager.Instance.SpawnEntity(card.item, spawnPos))
-        {
+        //if(EntityManager.Instance.SpawnEntity(card.item, spawnPos))
+        //{
             targetCards.Remove(card);
             selectCard.transform.DOKill();
             DestroyImmediate(selectCard.gameObject);
@@ -244,13 +244,13 @@ public class CardManager : Singleton<CardManager>
             throwCount++;
             throwCardAction(throwCount);
             return true;
-        }
-        else
-        {
-            targetCards.ForEach(x => x.GetComponent<Order>().SetMostFrontOrder(false));
-            CardAlignment();
-            return false;
-        }
+        //}
+        //else
+        //{
+        //    targetCards.ForEach(x => x.GetComponent<Order>().SetMostFrontOrder(false));
+        //    CardAlignment();
+        //    return false;
+        //}
     }
 
     #region MyCard
@@ -277,7 +277,7 @@ public class CardManager : Singleton<CardManager>
 
         if (onCardArea)
         {
-            EntityManager.Instance.RemoveMyEmptyEntity();
+            //EntityManager.Instance.RemoveMyEmptyEntity();
         }
         else
         {
@@ -292,7 +292,7 @@ public class CardManager : Singleton<CardManager>
         if (!onCardArea)
         {
             selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
-            EntityManager.Instance.InsertMyEmptyEntity(Utils.MousePos.x);
+            //EntityManager.Instance.InsertMyEmptyEntity(Utils.MousePos.x);
         }
     }
 

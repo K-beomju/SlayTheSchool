@@ -41,6 +41,7 @@ public class CardManager : Singleton<CardManager>
 
     // Effect
     private SkillObject attackEffect;
+    private DamageText damageText;
 
     protected override void Awake()
     {
@@ -271,6 +272,13 @@ public class CardManager : Singleton<CardManager>
                         hit.transform.position.y + 0.5f, 0), Utils.QI);
 
                     FindObjectOfType<Player>().AttackMovement();
+
+                    damageText = GameManager.GetDamageText();
+
+                    damageText.SetValueText(selectCard.item.attack);
+                    damageText.SetPositionData(new Vector3(hit.transform.position.x + 1f,
+                        hit.transform.position.y + 0.3f, 0), Utils.QI);
+
                 }
                 break;
         }

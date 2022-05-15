@@ -30,13 +30,17 @@ public class CardManager : Singleton<CardManager>
     private int throwCount = 0;     // ¹ö¸° Ä«µå °¹¼ö
     public int spawnCardCount;      // »ý¼ºÇÒ Ä«µå °¹¼ö 
 
+    // cost
     [SerializeField] private TMP_Text costText;
     private int maxCost = 3;
     private int cost;
 
+    // ETC
     [SerializeField] private GameObject bezierArrow;
     [SerializeField] private GameObject targetSlot;
 
+    // Effect
+    private SkillObject attackEffect;
 
     protected override void Awake()
     {
@@ -116,14 +120,10 @@ public class CardManager : Singleton<CardManager>
     }
 
  
-
-
     private void Update()
     {
         if (isCardDrag)
         {
-
-
             if(selectCard.item.type != TypeEnum.°ø°Ý)
             CardDrag();
 
@@ -134,8 +134,6 @@ public class CardManager : Singleton<CardManager>
 
 
         DetectCardArea();
-
-
 
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -258,7 +256,7 @@ public class CardManager : Singleton<CardManager>
         switch (selectCard.item.action)
         {
             case ActionEnum.Ã¥³Ö±â:
-                GameManager.Instance.Shield(selectCard.item.defense);
+                SkillManager.Instance.Shield(selectCard.item.defense);
                 break;
             case ActionEnum.Á×»§:
                 RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
@@ -267,6 +265,10 @@ public class CardManager : Singleton<CardManager>
                     EnemyHealth eh = hit.collider.GetComponent<EnemyHealth>();
                     eh.OnDamage(selectCard.item.attack);
                     CameraManager.ShakeCam(1, 0.2f);
+
+                    attackEffect = GameManager.GetAttackEffect();
+                    attackEffect.SetPositionData(new Vector3(hit.transform.position.x - 0.3f,
+                        hit.transform.position.y + 0.5f, 0), Utils.QI);
                 }
                 break;
         }

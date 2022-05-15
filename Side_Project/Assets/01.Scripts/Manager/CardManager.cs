@@ -260,6 +260,10 @@ public class CardManager : Singleton<CardManager>
             case ActionEnum.Ã¥³Ö±â:
                 GameManager.Instance.Shield(selectCard.item.defense);
                 break;
+            case ActionEnum.Á×»§:
+                RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
+                Debug.Log(hit);
+                break;
         }
 
         cost -= selectCard.item.cost;
@@ -331,9 +335,10 @@ public class CardManager : Singleton<CardManager>
         isCardDrag = false;
 
         if (!onCardArea)
+        {
             TryPutCard();
-      
-
+        }
+     
     }
 
     void CardDrag()

@@ -34,6 +34,8 @@ public class CardManager : Singleton<CardManager>
     private int maxCost = 3;
     private int cost;
 
+    [SerializeField] private GameObject bezierArrow;
+
     protected override void Awake()
     {
         base.Awake();
@@ -44,7 +46,7 @@ public class CardManager : Singleton<CardManager>
     {
         StartCoroutine(SpawnCardCo());
         cost = maxCost;
-        costText.text = String.Format("{0} / {1}", cost,maxCost);
+        costText.text = String.Format("{0} / {1}", cost, maxCost);
     }
 
     private IEnumerator SpawnCardCo()
@@ -111,14 +113,27 @@ public class CardManager : Singleton<CardManager>
         }
     }
 
+ 
+
 
     private void Update()
     {
         if (isCardDrag)
         {
+
+
+            if(selectCard.item.type != TypeEnum.공격)
             CardDrag();
+
+            bezierArrow.SetActive(selectCard.item.type == TypeEnum.공격);
         }
+        else
+            bezierArrow.SetActive(false);
+
+
         DetectCardArea();
+
+
 
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -236,9 +251,9 @@ public class CardManager : Singleton<CardManager>
 
     public bool TryPutCard()
     {
-        if(cost == 0) return false;
+        if (cost == 0) return false;
 
-        switch(selectCard.item.action)
+        switch (selectCard.item.action)
         {
             case ActionEnum.책넣기:
                 GameManager.Instance.Shield(selectCard.item.defense);
@@ -285,33 +300,36 @@ public class CardManager : Singleton<CardManager>
 
     public void CardMouseOver(Card card)
     {
+        if(!isCardDrag)
         selectCard = card;
         EnlargeCard(true, card);
     }
 
     public void CardMouseExit(Card card)
     {
+        if(selectCard.item.type != TypeEnum.공격 || !isCardDrag)
         EnlargeCard(false, card);
     }
 
     public void CardMouseDown()
     {
         isCardDrag = true;
+
+        if(selectCard.item.type == TypeEnum.공격) // isCardDrag의 선택된 카드가 공격일때 
+        {
+            Vector3 enlarPos = new Vector3(0, -4.43f, 0f);
+            selectCard.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), true , 0.2f);
+        }
+
     }
 
     public void CardMouseUp()
     {
         isCardDrag = false;
 
-        if (onCardArea)
-        {
-            //EntityManager.Instance.RemoveMyEmptyEntity();
-        }
-        else
-        {
-
+        if (!onCardArea)
             TryPutCard();
-        }
+      
 
     }
 
@@ -320,7 +338,6 @@ public class CardManager : Singleton<CardManager>
         if (!onCardArea)
         {
             selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
-            //EntityManager.Instance.InsertMyEmptyEntity(Utils.MousePos.x);
         }
     }
 

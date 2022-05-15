@@ -318,6 +318,8 @@ public class CardManager : Singleton<CardManager>
 
     public void CardMouseOver(Card card)
     {
+        if (isCardDrag) return;
+
         if (!isCardDrag)
             selectCard = card;
         EnlargeCard(true, card);

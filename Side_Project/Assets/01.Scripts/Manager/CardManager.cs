@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DG.Tweening;
+using TMPro;
 
 public class CardManager : Singleton<CardManager>
 {
@@ -21,7 +22,6 @@ public class CardManager : Singleton<CardManager>
     private Card selectCard;
     private bool isCardDrag;
     private bool onCardArea;
-    private int myPutCount;
 
 
     public static Action<int> pickCardAction = (x) => { };
@@ -29,6 +29,10 @@ public class CardManager : Singleton<CardManager>
 
     private int throwCount = 0;     // 버린 카드 갯수
     public int spawnCardCount;      // 생성할 카드 갯수 
+
+    [SerializeField] private TMP_Text costText;
+    private int maxCost = 3;
+    private int cost;
 
     protected override void Awake()
     {
@@ -39,6 +43,8 @@ public class CardManager : Singleton<CardManager>
     private void Start()
     {
         StartCoroutine(SpawnCardCo());
+        cost = maxCost;
+        costText.text = String.Format("{0} / {1}", cost,maxCost);
     }
 
     private IEnumerator SpawnCardCo()
@@ -230,7 +236,17 @@ public class CardManager : Singleton<CardManager>
 
     public bool TryPutCard()
     {
-        
+        if(cost == 0) return false;
+
+        switch(selectCard.item.action)
+        {
+            case ActionEnum.책넣기:
+                GameManager.Instance.Shield(selectCard.item.defense);
+                break;
+        }
+
+        cost -= selectCard.item.cost;
+        costText.text = String.Format("{0} / {1}", cost, maxCost);
 
 
         myCards.Remove(selectCard);

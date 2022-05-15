@@ -14,7 +14,11 @@ public class Item
     public int attack;          // 카드 공격력
     public int defense;         // 카드 수비력
     public float count;         // 카드 확률
-    public TypeEnum type;
+
+    public TypeEnum type;       // 타입 종류
+    public ActionEnum action;   // 스킬 종류
+
+    
 }
 
 public enum TypeEnum
@@ -23,6 +27,13 @@ public enum TypeEnum
     공격,
     방어,
     스킬
+
+}
+
+public enum ActionEnum
+{
+    책넣기,
+    죽빵
 
 }
 

@@ -3258,6 +3258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackEffect: {fileID: 4418124535022450788, guid: fed1ea4cc0de4c24da65a8c017220c13, type: 3}
+  damageText: {fileID: 8572007007485731463, guid: 400053a69ef38ca4fac9cf51427a1fd9, type: 3}
 --- !u!114 &1270710709
 MonoBehaviour:
   m_ObjectHideFlags: 0

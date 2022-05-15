@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8572007007485731461}
   - component: {fileID: 8572007007485731460}
   - component: {fileID: 8572007007485731459}
+  - component: {fileID: 4960103957497672085}
   m_Layer: 0
   m_Name: DamageText
   m_TagString: Untagged
@@ -57,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8254153204252748337, guid: 46e72a5f14d75c846a0049f4572a5d39, type: 2}
+  - {fileID: 8254153204252748337, guid: 1df222a0090dced48bf9b489e816da01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,8 +102,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 11
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 46e72a5f14d75c846a0049f4572a5d39, type: 2}
-  m_sharedMaterial: {fileID: 8254153204252748337, guid: 46e72a5f14d75c846a0049f4572a5d39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1df222a0090dced48bf9b489e816da01, type: 2}
+  m_sharedMaterial: {fileID: 8254153204252748337, guid: 1df222a0090dced48bf9b489e816da01, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -183,3 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094699995de7a8f40b1e7626e407c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!33 &4960103957497672085
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572007007485731463}
+  m_Mesh: {fileID: 0}

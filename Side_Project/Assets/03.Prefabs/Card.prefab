@@ -709,6 +709,7 @@ MonoBehaviour:
     defense: 0
     count: 0
     type: 0
+    action: 0
   originPRS:
     pos: {x: 0, y: 0, z: 0}
     rot: {x: 0, y: 0, z: 0, w: 0}

@@ -120,13 +120,13 @@ public class CardManager : Singleton<CardManager>
         }
     }
 
- 
+
     private void Update()
     {
         if (isCardDrag)
         {
-            if(selectCard.item.type != TypeEnum.공격)
-            CardDrag();
+            if (selectCard.item.type != TypeEnum.공격)
+                CardDrag();
 
             bezierArrow.SetActive(selectCard.item.type == TypeEnum.공격);
         }
@@ -135,7 +135,6 @@ public class CardManager : Singleton<CardManager>
 
 
         DetectCardArea();
-
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
             AddCard();
@@ -257,35 +256,50 @@ public class CardManager : Singleton<CardManager>
         switch (selectCard.item.action)
         {
             case ActionEnum.책넣기:
-                SkillManager.Instance.Shield(selectCard.item.defense);
+                {
+                    SkillManager.Instance.Shield(selectCard.item.defense);
+                    UseCard();
+                }
                 break;
             case ActionEnum.죽빵:
-                RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
-                if(hit != null)
+                RaycastHit2D[] hit = Physics2D.RaycastAll(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
+                if (Array.Exists(hit, x => x.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")))
                 {
-                    EnemyHealth eh = hit.collider.GetComponent<EnemyHealth>();
-                    eh.OnDamage(selectCard.item.attack);
+                    var hits = hit[0];
+
+                    EnemyHealth eh = hits.collider.GetComponent<EnemyHealth>();
+                    if (eh != null)
+                        eh.OnDamage(selectCard.item.attack);
                     CameraManager.ShakeCam(1, 0.2f);
 
                     attackEffect = GameManager.GetAttackEffect();
-                    attackEffect.SetPositionData(new Vector3(hit.transform.position.x - 0.3f,
-                        hit.transform.position.y + 0.5f, 0), Utils.QI);
+                    attackEffect.SetPositionData(new Vector3(hits.transform.position.x - 0.3f,
+                        hits.transform.position.y + 0.5f, 0), Utils.QI);
 
                     FindObjectOfType<Player>().AttackMovement();
 
                     damageText = GameManager.GetDamageText();
 
                     damageText.SetValueText(selectCard.item.attack);
-                    damageText.SetPositionData(new Vector3(hit.transform.position.x + 1f,
-                        hit.transform.position.y + 0.3f, 0), Utils.QI);
+                    damageText.SetPositionData(new Vector3(hits.transform.position.x + 1f,
+                        hits.transform.position.y + 0.3f, 0), Utils.QI);
 
+                    UseCard();
+                }
+                else
+                {
+                    CardAlignment();
+                    SetOriginOrder();
                 }
                 break;
         }
+        return true;
+    }
 
+    public void UseCard()
+    {
         cost -= selectCard.item.cost;
         costText.text = String.Format("{0} / {1}", cost, maxCost);
-
 
         myCards.Remove(selectCard);
         selectCard.transform.DOKill();
@@ -298,51 +312,31 @@ public class CardManager : Singleton<CardManager>
         throwCardAction(throwCount);
 
         targetSlot.SetActive(false);
-
-
-        return true;
-
-
-
-        /*
-        if (myPutCount >= 1)
-            return false;
-        myPutCount++;
-        if(EntityManager.Instance.SpawnEntity(card.item, spawnPos))
-        {
-        }
-        else
-        {
-            targetCards.ForEach(x => x.GetComponent<Order>().SetMostFrontOrder(false));
-            CardAlignment();
-            return false;
-        }
-        */
     }
 
     #region MyCard
 
     public void CardMouseOver(Card card)
     {
-        if(!isCardDrag)
-        selectCard = card;
+        if (!isCardDrag)
+            selectCard = card;
         EnlargeCard(true, card);
     }
 
     public void CardMouseExit(Card card)
     {
-        if(selectCard.item.type != TypeEnum.공격 || !isCardDrag)
-        EnlargeCard(false, card);
+        if (selectCard.item.type != TypeEnum.공격 || !isCardDrag)
+            EnlargeCard(false, card);
     }
 
     public void CardMouseDown()
     {
         isCardDrag = true;
 
-        if(selectCard.item.type == TypeEnum.공격) // isCardDrag의 선택된 카드가 공격일때 
+        if (selectCard.item.type == TypeEnum.공격) // isCardDrag의 선택된 카드가 공격일때 
         {
             Vector3 enlarPos = new Vector3(0, -4.43f, 0f);
-            selectCard.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), true , 0.2f);
+            selectCard.MoveTransform(new PRS(enlarPos, Utils.QI, cardPrefab.transform.localScale), true, 0.2f);
         }
 
     }
@@ -355,7 +349,7 @@ public class CardManager : Singleton<CardManager>
         {
             TryPutCard();
         }
-     
+
     }
 
     void CardDrag()
@@ -390,9 +384,9 @@ public class CardManager : Singleton<CardManager>
 
     public bool isAttackCardArea()
     {
-        if(selectCard == null) return false;    
+        if (selectCard == null) return false;
 
-        if(selectCard.item.type == TypeEnum.공격 && isCardDrag && !onCardArea)
+        if (selectCard.item.type == TypeEnum.공격 && isCardDrag && !onCardArea)
         {
             return true;
         }

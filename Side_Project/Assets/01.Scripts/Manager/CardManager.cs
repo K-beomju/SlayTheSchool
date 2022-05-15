@@ -262,7 +262,12 @@ public class CardManager : Singleton<CardManager>
                 break;
             case ActionEnum.Á×»§:
                 RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
-                Debug.Log(hit);
+                if(hit != null)
+                {
+                    EnemyHealth eh = hit.collider.GetComponent<EnemyHealth>();
+                    eh.OnDamage(selectCard.item.attack);
+                    CameraManager.ShakeCam(1, 0.2f);
+                }
                 break;
         }
 

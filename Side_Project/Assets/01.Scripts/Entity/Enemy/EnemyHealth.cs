@@ -2,28 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : LivingEntity
+public class EnemyHealth : LivingEntity
 {
-    #region SerializeField Fields
-    [SerializeField] private Vector3 offset;
-    #endregion
+    [SerializeField] private HpSlider hpSlider;
 
-    #region private Fields
-    #endregion
+
+
+    [ContextMenu("Damage")]
+    public void Hit()
+    {
+        OnDamage(1);
+    }
+
 
     protected override void Awake()
     {
-      
+
     }
 
     protected override void Start()
     {
         base.Start();
+        hpSlider.SetHpbar(curHp, maxHp);
     }
 
     public override void OnDamage(int damage)
     {
         base.OnDamage(damage);
+        hpSlider.SetHpbar(curHp, maxHp);
+
     }
 
     public override void Die()

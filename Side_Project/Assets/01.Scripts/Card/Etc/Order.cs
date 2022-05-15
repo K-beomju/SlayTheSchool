@@ -9,11 +9,7 @@ public class Order : MonoBehaviour
     [SerializeField] private string sortingLayerName;
     private int originOrder;
 
-    private void Start()
-    {
-       SetMostFrontOrder(true);
-
-    }
+   
 
     public void SetOriginOrder(int originOrder)
     {

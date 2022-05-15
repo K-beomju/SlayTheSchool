@@ -11,7 +11,7 @@ public class Entity : MonoBehaviour
 
     [SerializeField] private TMP_Text nameTMP;
     [SerializeField] private TMP_Text attackTMP;
-    [SerializeField] private TMP_Text healthTMP;
+    [SerializeField] private TMP_Text defenceTMP;
 
     public PlayerHealth ph { get; set; }
 
@@ -28,14 +28,13 @@ public class Entity : MonoBehaviour
     public void SetUp(Item item)
     {
         attack = item.attack;
-        health = item.hp;
 
         this.item = item;
         character.sprite = this.item.sprite;
         nameTMP.text = this.item.name;
 
         attackTMP.text = attack.ToString();
-        healthTMP.text = health.ToString();
+        defenceTMP.text = health.ToString();
     }
 
     public void MoveTransform(Vector3 pos , bool useDotween, float dotweenTime = 0)

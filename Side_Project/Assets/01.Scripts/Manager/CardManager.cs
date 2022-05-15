@@ -133,6 +133,8 @@ public class CardManager : Singleton<CardManager>
         card.Setup(PopItem(), true);
         myCards.Add(card);
 
+        SetOriginOrder();
+
         pickCardAction(itemBuffer.Count);
         CardAlignment();
     }

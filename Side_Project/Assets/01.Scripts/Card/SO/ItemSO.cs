@@ -12,18 +12,19 @@ public class Item
     public string description;  // 카드 설명
 
     public int attack;          // 카드 공격력
-    public int hp;         // 카드 생명력
-    public float count;       // 카드 확률
+    public int defense;         // 카드 수비력
+    public float count;         // 카드 확률
+    public TypeEnum type;
 }
 
-//public enum TypeEnum
-//{
-//    더미,
-//    공격,
-//    방어,
-//    스킬
+public enum TypeEnum
+{
+    더미,
+    공격,
+    방어,
+    스킬
 
-//}
+}
 
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Scriptable Object/ItemSO")]
 public class ItemSO : ScriptableObject

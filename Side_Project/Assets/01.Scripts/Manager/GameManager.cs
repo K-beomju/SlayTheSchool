@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : Singleton<GameManager>
 {
-    public GameObject attackEffect;
+
+    [SerializeField] private GameObject attackEffect;
     private ObjectPooling<SkillObject> attackPool;
 
     protected override void Awake()

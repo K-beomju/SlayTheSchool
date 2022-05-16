@@ -24,14 +24,20 @@ public class EnemyHealth : LivingEntity
 
     public override void OnDamage(int damage)
     {
-        base.OnDamage(damage);
+        base.OnDamage(damage + CardManager.Instance.fireCkValue);
         hpSlider.SetHpbar(curHp, maxHp);
 
         damageText = GameManager.GetDamageText();
 
-        damageText.SetValueText(damage);
+        damageText.SetValueText(damage + CardManager.Instance.fireCkValue);
         damageText.SetPositionData(new Vector3(transform.position.x + 1f,
             transform.position.y + 2f, 0), Utils.QI);
+
+        if(CardManager.Instance.fireCkValue != 0)
+        {
+        CardManager.Instance.fireCkValue = 0;
+        FindObjectOfType<Player>().OnOutline(false);
+        }
 
         if (curHp > 0) // 현재 체력이 0 이상일때만 애니메이션 실행
             enemyAnim.HitState();

@@ -44,6 +44,8 @@ public class CardManager : Singleton<CardManager>
     private DamageText damageText;
     private SpineSkillObject spineSkill;
 
+    // ºÒ´ß
+    public int fireCkValue;
 
     protected override void Awake()
     {
@@ -318,6 +320,14 @@ public class CardManager : Singleton<CardManager>
                     SoundManager.Instance.PlayFXSound("TakeMoney");
 
                     AddCard();
+                    UseCard();
+                }
+                break;
+            case ActionEnum.ºÒ´ß¸Ô±â:
+                {
+                    fireCkValue = 3;
+                    FindObjectOfType<PlayerHealth>().OnDamage(5);
+                    FindObjectOfType<Player>().OnOutline(true);
                     UseCard();
                 }
                 break;

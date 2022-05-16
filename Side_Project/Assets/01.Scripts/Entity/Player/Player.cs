@@ -5,6 +5,19 @@ using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Material mat;
+    [SerializeField] private GameObject fireParticle;
+
+
+    public void OnOutline(bool isActive)
+    {
+        if(isActive)
+        mat.shader = Shader.Find("Spine/Outline/Skeleton");
+        else
+        mat.shader = Shader.Find("Spine/Skeleton");
+
+       fireParticle.SetActive(isActive);
+    }
 
     public void AttackMovement()
     {

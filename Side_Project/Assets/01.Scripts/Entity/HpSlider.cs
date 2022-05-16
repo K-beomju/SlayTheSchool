@@ -7,13 +7,17 @@ using DG.Tweening;
 public class HpSlider : MonoBehaviour
 {
     private Slider hpSlider;
+    private Text hpText;
+    private CanvasGroup cg;
+
     public Slider hpShadowSlider;
 
-    private Text hpText;
+
     private void Awake()
     {
         hpSlider = GetComponent<Slider>();
         hpText = GetComponentInChildren<Text>();
+        cg = GetComponent<CanvasGroup>();
     }
     
     public void SetHpbar(float curHp, float maxHp)
@@ -22,6 +26,12 @@ public class HpSlider : MonoBehaviour
         hpText.text = string.Format("{0} / {1}", curHp, maxHp);
         hpShadowSlider.DOValue(curHp / maxHp, 1).SetDelay(0.5f);
 
+    }
+
+    public void SetDeath()
+    {
+        cg.DOFade(0, 1);
+        hpText.text = "»ç¸Á";
     }
 
    

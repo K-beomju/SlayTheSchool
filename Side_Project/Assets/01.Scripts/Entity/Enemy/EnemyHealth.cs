@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : LivingEntity
 {
     [SerializeField] private HpSlider hpSlider;
-
+    private EnemyAnimation ea;
 
 
     [ContextMenu("Damage")]
@@ -14,10 +14,9 @@ public class EnemyHealth : LivingEntity
         OnDamage(1);
     }
 
-
     protected override void Awake()
     {
-
+        ea = GetComponent<EnemyAnimation>();
     }
 
     protected override void Start()
@@ -30,6 +29,7 @@ public class EnemyHealth : LivingEntity
     {
         base.OnDamage(damage);
         hpSlider.SetHpbar(curHp, maxHp);
+        ea.HitAnimation();
 
     }
 

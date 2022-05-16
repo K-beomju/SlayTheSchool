@@ -328,6 +328,8 @@ public class CardManager : Singleton<CardManager>
                     fireCkValue = 3;
                     FindObjectOfType<PlayerHealth>().OnDamage(5);
                     FindObjectOfType<Player>().OnOutline(true);
+                    SoundManager.Instance.PlayFXSound("EatFire");
+
                     UseCard();
                 }
                 break;

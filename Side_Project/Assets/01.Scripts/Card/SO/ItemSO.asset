@@ -16,7 +16,7 @@ MonoBehaviour:
   - cost: 1
     name: "\uC8FD\uBE75"
     sprite: {fileID: 21300000, guid: f3303e755381d3c45b460f7e0e8c04a5, type: 3}
-    description: "\uD53C\uD574\uB97C 3 \uC90D\uB2C8\uB2E4."
+    description: "<color=orange>\uD53C\uD574</color>\uB97C 3 \uC90D\uB2C8\uB2E4."
     attack: 3
     defense: 0
     count: 5
@@ -34,8 +34,8 @@ MonoBehaviour:
   - cost: 1
     name: "\uC0A5 \uB72F\uAE30"
     sprite: {fileID: 21300000, guid: eece58da01bfe6241b78a2124e6fade7, type: 3}
-    description: "\uC0C1\uB300\uB97C \uC18D\uC5EC \uD53C\uD574\uB97C   2 \uC785\uD788\uACE0
-      \uCE74\uB4DC \uD55C \uC7A5\uC744 \uAC00\uC838\uC635\uB2C8\uB2E4"
+    description: "\uC0C1\uB300\uB97C \uC18D\uC5EC <color=orange>\uD53C\uD574</color>\uB97C  
+      2 \uC785\uD788\uACE0 \uCE74\uB4DC \uD55C \uC7A5\uC744 \uAC00\uC838\uC635\uB2C8\uB2E4"
     attack: 2
     defense: 0
     count: 3
@@ -44,8 +44,9 @@ MonoBehaviour:
   - cost: 2
     name: "\uBD88\uB2ED\uBA39\uAE30"
     sprite: {fileID: 21300000, guid: 3b145398e50e26c4ebe9dc464d8f4500, type: 3}
-    description: "\uC790\uC2E0\uC758 \uCCB4\uB825 5\uB97C \uAE4E\uACE0 \uB2E4\uC74C
-      \uACF5\uACA9\uC758 3\uC744       \uCD94\uAC00\uB85C \uC785\uD799\uB2C8\uB2E4  "
+    description: "\uC790\uC2E0\uC758 <color=orange>\uCCB4\uB825</color> 5\uB97C \uAE4E\uACE0
+      \uB2E4\uC74C <color=orange>\uACF5\uACA9</color>\uC758 3\uC744       \uCD94\uAC00\uB85C
+      \uC785\uD799\uB2C8\uB2E4  "
     attack: 0
     defense: 0
     count: 3

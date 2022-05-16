@@ -12,6 +12,7 @@ public class HpSlider : MonoBehaviour
 
     public Slider hpShadowSlider;
 
+    public Text uiHpText;
 
     private void Awake()
     {
@@ -24,6 +25,8 @@ public class HpSlider : MonoBehaviour
     {
         hpSlider.value = Mathf.Clamp(curHp / maxHp, 0, 1);
         hpText.text = string.Format("{0} / {1}", curHp, maxHp);
+        if(uiHpText != null)
+            uiHpText.text = string.Format("{0} / {1}", curHp, maxHp);
         hpShadowSlider.DOValue(curHp / maxHp, 1).SetDelay(0.5f);
 
     }

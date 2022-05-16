@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //SoundManager.Instance.PlayBGMSound("BGM");
+        SoundManager.Instance.PlayBGMSound("BGM");
     }
 
     public static SkillObject GetAttackEffect()

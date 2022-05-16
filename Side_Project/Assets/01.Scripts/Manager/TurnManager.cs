@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class TurnManager : Singleton<TurnManager>
 {
     [SerializeField] private Button turnEndBtn;
+    [SerializeField] private CanvasGroup turnPanel;
+
     private TMP_Text turnText;
     private Enemy enemy;
 
@@ -28,6 +31,7 @@ public class TurnManager : Singleton<TurnManager>
         turnEndBtn.interactable = false;
         turnText.text = "ªÛ¥Î ≈œ";
         enemy.Attack();
+
     }
 
 

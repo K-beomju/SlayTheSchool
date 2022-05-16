@@ -54,6 +54,7 @@ public class SkillManager : Singleton<SkillManager>
         shieldImage.DOFade(1, 1);
         shieldImage.GetComponent<RectTransform>().DOAnchorPosY(endRtShieldPos, 0.7f).OnComplete(() =>
         {
+            SoundManager.Instance.PlayFXSound("Shield");
             RectTransform shieldrt = shieldText.GetComponent<RectTransform>();
             Sequence mySequence = DOTween.Sequence();
             mySequence.Append(shieldrt.DOScale(new Vector2(1.5f, 1.5f), 0.5f).SetLoops(2, LoopType.Yoyo)).Insert(0.1f, shieldText.DOFade(1, 0.5f));

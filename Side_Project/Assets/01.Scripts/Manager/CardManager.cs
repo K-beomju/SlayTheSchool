@@ -154,6 +154,7 @@ public class CardManager : Singleton<CardManager>
             pickCardAction(itemBuffer.Count);
             throwCount = 0; // Reset
             throwCardAction(throwCount);
+
         }
 
         var cardObj = Instantiate(cardPrefab, cardSpawnPoint.position, Utils.QI);
@@ -165,6 +166,8 @@ public class CardManager : Singleton<CardManager>
 
         pickCardAction(itemBuffer.Count);
         CardAlignment();
+
+        SoundManager.Instance.PlayFXSound("Card");
     }
 
     public void SetOriginOrder()
@@ -275,7 +278,7 @@ public class CardManager : Singleton<CardManager>
                     CameraManager.ShakeCam(1, 0.2f);
 
                     attackEffect = GameManager.GetAttackEffect();
-                    attackEffect.SetPositionData(new Vector3(hits.transform.position.x - 0.3f,
+                    attackEffect.SetPositionData(new Vector3(hits.transform.position.x + 1f,
                         hits.transform.position.y + 0.5f, 0), Utils.QI);
 
                     FindObjectOfType<Player>().AttackMovement();

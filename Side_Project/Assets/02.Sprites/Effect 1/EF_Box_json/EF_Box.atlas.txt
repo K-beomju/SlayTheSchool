@@ -1,0 +1,34 @@
+
+EF_Box.png
+size: 604,320
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+box01
+  rotate: false
+  xy: 2, 161
+  size: 334, 157
+  orig: 337, 159
+  offset: 2, 1
+  index: -1
+box02
+  rotate: false
+  xy: 2, 2
+  size: 334, 157
+  orig: 337, 159
+  offset: 2, 1
+  index: -1
+box03
+  rotate: false
+  xy: 338, 7
+  size: 131, 311
+  orig: 131, 311
+  offset: 0, 0
+  index: -1
+box04
+  rotate: false
+  xy: 471, 7
+  size: 131, 311
+  orig: 131, 311
+  offset: 0, 0
+  index: -1

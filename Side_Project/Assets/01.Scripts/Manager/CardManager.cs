@@ -42,6 +42,7 @@ public class CardManager : Singleton<CardManager>
     // Effect
     private SkillObject attackEffect;
     private DamageText damageText;
+    private SpineSkillObject spineSkill;
 
 
     protected override void Awake()
@@ -52,13 +53,13 @@ public class CardManager : Singleton<CardManager>
 
     private void Start()
     {
-        StartCoroutine(SpawnCardCo());
+        StartCoroutine(StartCardCo());
         cost = maxCost;
         costText.text = String.Format("{0} / {1}", cost, maxCost);
 
     }
 
-    private IEnumerator SpawnCardCo()
+    private IEnumerator StartCardCo()
     {
         yield return new WaitForSeconds(1f);
 
@@ -70,7 +71,7 @@ public class CardManager : Singleton<CardManager>
 
     }
 
-    private IEnumerator ExitCardCo()
+    private IEnumerator EndCardCo()
     {
         for (int i = 0; i < myCards.Count; i++)
         {
@@ -137,11 +138,6 @@ public class CardManager : Singleton<CardManager>
 
 
         DetectCardArea();
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            AddCard();
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            StartCoroutine(ExitCardCo());
     }
 
     private void AddCard()
@@ -278,16 +274,16 @@ public class CardManager : Singleton<CardManager>
                     CameraManager.ShakeCam(1, 0.2f);
 
                     attackEffect = GameManager.GetAttackEffect();
-                    attackEffect.SetPositionData(new Vector3(hits.transform.position.x + 1f,
-                        hits.transform.position.y + 0.5f, 0), Utils.QI);
+                    attackEffect.SetPositionData(new Vector3(hits.transform.position.x + 0.8f,
+                        hits.transform.position.y + 1f, 0), Utils.QI);
+
+                    spineSkill = GameManager.GetPunchEffect();
+                    spineSkill.SetPositionData(new Vector3(hits.transform.position.x,
+                        hits.transform.position.y, 0), Utils.QI);
 
                     FindObjectOfType<Player>().AttackMovement();
 
-                    damageText = GameManager.GetDamageText();
-
-                    damageText.SetValueText(selectCard.item.attack);
-                    damageText.SetPositionData(new Vector3(hits.transform.position.x + 1f,
-                        hits.transform.position.y + 0.3f, 0), Utils.QI);
+               
 
                     UseCard();
                     SoundManager.Instance.PlayFXSound("Punch");
@@ -400,6 +396,23 @@ public class CardManager : Singleton<CardManager>
             return true;
         }
         return false;
+    }
+
+
+    public void PlayerTurnEnd()
+    {
+        cost = 0;
+        costText.text = String.Format("{0} / {1}", cost, maxCost);
+        StartCoroutine(EndCardCo());
+
+
+    }
+
+    public void PlayerTurnStart()
+    {
+        cost = maxCost;
+        costText.text = String.Format("{0} / {1}", cost, maxCost);
+        StartCoroutine(StartCardCo());
     }
 }
 

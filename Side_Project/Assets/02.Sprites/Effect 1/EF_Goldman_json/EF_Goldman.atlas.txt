@@ -1,0 +1,41 @@
+
+EF_Goldman.png
+size: 1608,296
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 646, 10
+  size: 280, 284
+  orig: 322, 317
+  offset: 8, 27
+  index: -1
+gold01
+  rotate: false
+  xy: 928, 23
+  size: 338, 271
+  orig: 339, 273
+  offset: 1, 1
+  index: -1
+gold02
+  rotate: false
+  xy: 1268, 23
+  size: 338, 271
+  orig: 339, 273
+  offset: 0, 1
+  index: -1
+gold03
+  rotate: false
+  xy: 2, 2
+  size: 320, 292
+  orig: 326, 294
+  offset: 5, 1
+  index: -1
+gold04
+  rotate: false
+  xy: 324, 2
+  size: 320, 292
+  orig: 326, 294
+  offset: 1, 1
+  index: -1

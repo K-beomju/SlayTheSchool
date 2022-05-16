@@ -1,0 +1,41 @@
+
+EF_Shadow.png
+size: 1159,237
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Shadow01
+  rotate: false
+  xy: 593, 30
+  size: 255, 33
+  orig: 255, 33
+  offset: 0, 0
+  index: -1
+EF_Shadow02
+  rotate: false
+  xy: 2, 5
+  size: 320, 230
+  orig: 320, 230
+  offset: 0, 0
+  index: -1
+EF_Shadow03
+  rotate: false
+  xy: 906, 31
+  size: 251, 204
+  orig: 256, 208
+  offset: 3, 2
+  index: -1
+EF_Shadow04
+  rotate: false
+  xy: 324, 2
+  size: 267, 233
+  orig: 269, 236
+  offset: 1, 1
+  index: -1
+EF_Shadow05
+  rotate: false
+  xy: 593, 65
+  size: 311, 170
+  orig: 313, 173
+  offset: 1, 1
+  index: -1

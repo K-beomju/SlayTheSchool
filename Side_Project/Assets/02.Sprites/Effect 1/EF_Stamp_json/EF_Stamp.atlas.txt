@@ -1,0 +1,48 @@
+
+EF_Stamp.png
+size: 430,225
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 74
+  rotate: true
+  xy: 117, 2
+  size: 139, 311
+  orig: 140, 312
+  offset: 1, 1
+  index: -1
+Layer 75
+  rotate: true
+  xy: 194, 143
+  size: 80, 111
+  orig: 82, 112
+  offset: 1, 1
+  index: -1
+Layer 75 copy
+  rotate: true
+  xy: 307, 143
+  size: 80, 111
+  orig: 82, 112
+  offset: 1, 1
+  index: -1
+Layer 76
+  rotate: true
+  xy: 2, 156
+  size: 67, 94
+  orig: 68, 95
+  offset: 0, 1
+  index: -1
+Layer 76 copy
+  rotate: true
+  xy: 98, 156
+  size: 67, 94
+  orig: 68, 95
+  offset: 1, 1
+  index: -1
+Layer 77
+  rotate: false
+  xy: 2, 41
+  size: 113, 113
+  orig: 113, 113
+  offset: 0, 0
+  index: -1

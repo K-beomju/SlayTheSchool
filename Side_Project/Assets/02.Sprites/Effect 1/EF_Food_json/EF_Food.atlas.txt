@@ -1,0 +1,48 @@
+
+EF_Food.png
+size: 1023,143
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Food01
+  rotate: true
+  xy: 714, 10
+  size: 131, 120
+  orig: 132, 121
+  offset: 0, 1
+  index: -1
+EF_Food02
+  rotate: false
+  xy: 2, 2
+  size: 135, 139
+  orig: 136, 139
+  offset: 0, 0
+  index: -1
+EF_Food03
+  rotate: false
+  xy: 927, 42
+  size: 94, 99
+  orig: 94, 100
+  offset: 0, 0
+  index: -1
+EF_Food04
+  rotate: false
+  xy: 836, 40
+  size: 89, 101
+  orig: 89, 103
+  offset: 0, 2
+  index: -1
+EF_Food05
+  rotate: true
+  xy: 436, 6
+  size: 135, 276
+  orig: 143, 285
+  offset: 4, 4
+  index: -1
+EF_Food06
+  rotate: true
+  xy: 139, 3
+  size: 138, 295
+  orig: 143, 306
+  offset: 2, 5
+  index: -1

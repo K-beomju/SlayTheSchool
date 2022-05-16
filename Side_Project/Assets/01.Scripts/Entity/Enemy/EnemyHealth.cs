@@ -6,18 +6,13 @@ using DG.Tweening;
 public class EnemyHealth : LivingEntity
 {
     [SerializeField] private HpSlider hpSlider;
-    private EnemyAnimation ea;
+    private EnemyAnimation enemyAnim;
+    private DamageText damageText;
 
-
-    [ContextMenu("Damage")]
-    public void Hit()
-    {
-        OnDamage(1);
-    }
 
     protected override void Awake()
     {
-        ea = GetComponent<EnemyAnimation>();
+        enemyAnim = GetComponent<EnemyAnimation>();
     }
 
     protected override void Start()
@@ -32,8 +27,14 @@ public class EnemyHealth : LivingEntity
         base.OnDamage(damage);
         hpSlider.SetHpbar(curHp, maxHp);
 
+        damageText = GameManager.GetDamageText();
+
+        damageText.SetValueText(damage);
+        damageText.SetPositionData(new Vector3(transform.position.x + 1f,
+            transform.position.y + 0.3f, 0), Utils.QI);
+
         if (curHp > 0) // 현재 체력이 0 이상일때만 애니메이션 실행
-            ea.HitState();
+            enemyAnim.HitState();
         else
             hpSlider.SetDeath();
 
@@ -41,7 +42,7 @@ public class EnemyHealth : LivingEntity
 
     public void DeathEvent()
     {
-        ea.DieState();
+        enemyAnim.DieState();
 
     }
 

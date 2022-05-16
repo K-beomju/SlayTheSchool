@@ -1,0 +1,34 @@
+
+EF_Spectrum.png
+size: 362,416
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Spectrum01
+  rotate: false
+  xy: 2, 2
+  size: 339, 294
+  orig: 340, 295
+  offset: 0, 0
+  index: -1
+EF_Spectrum02
+  rotate: true
+  xy: 231, 298
+  size: 116, 129
+  orig: 122, 135
+  offset: 4, 3
+  index: -1
+EF_Spectrum03
+  rotate: true
+  xy: 106, 302
+  size: 112, 123
+  orig: 119, 127
+  offset: 4, 2
+  index: -1
+EF_Spectrum04
+  rotate: false
+  xy: 2, 315
+  size: 102, 99
+  orig: 107, 104
+  offset: 2, 2
+  index: -1

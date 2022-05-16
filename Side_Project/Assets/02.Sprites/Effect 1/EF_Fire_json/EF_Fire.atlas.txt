@@ -1,0 +1,34 @@
+
+EF_Fire.png
+size: 422,530
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Fire01
+  rotate: false
+  xy: 2, 248
+  size: 239, 280
+  orig: 239, 280
+  offset: 0, 0
+  index: -1
+EF_Fire02
+  rotate: false
+  xy: 2, 24
+  size: 254, 222
+  orig: 255, 224
+  offset: 0, 1
+  index: -1
+EF_Fire03
+  rotate: true
+  xy: 243, 261
+  size: 267, 176
+  orig: 269, 180
+  offset: 1, 3
+  index: -1
+EF_Fire04
+  rotate: true
+  xy: 258, 2
+  size: 257, 162
+  orig: 257, 163
+  offset: 0, 1
+  index: -1

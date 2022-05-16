@@ -1,0 +1,41 @@
+
+EF_Swaying.png
+size: 543,613
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_swaying01
+  rotate: true
+  xy: 281, 2
+  size: 284, 260
+  orig: 286, 261
+  offset: 1, 1
+  index: -1
+EF_swaying02
+  rotate: false
+  xy: 347, 293
+  size: 152, 145
+  orig: 154, 147
+  offset: 1, 1
+  index: -1
+EF_swaying03
+  rotate: false
+  xy: 2, 6
+  size: 277, 280
+  orig: 277, 281
+  offset: 0, 1
+  index: -1
+EF_swaying04
+  rotate: false
+  xy: 347, 440
+  size: 178, 171
+  orig: 179, 171
+  offset: 0, 0
+  index: -1
+EF_swaying06
+  rotate: false
+  xy: 2, 288
+  size: 343, 323
+  orig: 347, 328
+  offset: 2, 3
+  index: -1

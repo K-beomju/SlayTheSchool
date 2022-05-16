@@ -1,0 +1,48 @@
+
+geugdaneffect.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect pillar
+  rotate: false
+  xy: 2, 218
+  size: 732, 281
+  orig: 736, 288
+  offset: 1, 4
+  index: -1
+effect pillar copy
+  rotate: false
+  xy: 2, 125
+  size: 608, 91
+  orig: 617, 100
+  offset: 6, 2
+  index: -1
+effect pillar copy 2
+  rotate: false
+  xy: 2, 2
+  size: 403, 121
+  orig: 411, 135
+  offset: 4, 3
+  index: -1
+text1
+  rotate: false
+  xy: 736, 405
+  size: 163, 94
+  orig: 165, 96
+  offset: 1, 1
+  index: -1
+text2
+  rotate: false
+  xy: 407, 29
+  size: 163, 94
+  orig: 165, 96
+  offset: 1, 1
+  index: -1
+text3
+  rotate: false
+  xy: 736, 309
+  size: 163, 94
+  orig: 165, 96
+  offset: 1, 1
+  index: -1

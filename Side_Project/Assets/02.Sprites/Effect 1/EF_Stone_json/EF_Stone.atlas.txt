@@ -1,0 +1,34 @@
+
+EF_Stone.png
+size: 328,220
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Stone01
+  rotate: true
+  xy: 2, 2
+  size: 216, 274
+  orig: 216, 274
+  offset: 0, 0
+  index: -1
+EF_Stone02
+  rotate: false
+  xy: 278, 73
+  size: 40, 40
+  orig: 42, 41
+  offset: 1, 1
+  index: -1
+EF_Stone03
+  rotate: true
+  xy: 278, 115
+  size: 47, 44
+  orig: 49, 44
+  offset: 1, 0
+  index: -1
+EF_Stone04
+  rotate: true
+  xy: 278, 164
+  size: 54, 48
+  orig: 55, 49
+  offset: 0, 0
+  index: -1

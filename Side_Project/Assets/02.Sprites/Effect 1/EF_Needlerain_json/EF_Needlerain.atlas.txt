@@ -1,0 +1,34 @@
+
+EF_Needlerain.png
+size: 480,539
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Needlerain01
+  rotate: true
+  xy: 314, 256
+  size: 281, 148
+  orig: 281, 149
+  offset: 0, 0
+  index: -1
+EF_Needlerain02
+  rotate: false
+  xy: 278, 49
+  size: 200, 203
+  orig: 218, 209
+  offset: 0, 5
+  index: -1
+EF_Needlerain03
+  rotate: false
+  xy: 2, 2
+  size: 274, 250
+  orig: 278, 254
+  offset: 2, 2
+  index: -1
+EF_Needlerain04
+  rotate: false
+  xy: 2, 254
+  size: 310, 283
+  orig: 314, 288
+  offset: 2, 2
+  index: -1

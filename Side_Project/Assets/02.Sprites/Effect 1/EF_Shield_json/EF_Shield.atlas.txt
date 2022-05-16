@@ -1,0 +1,34 @@
+
+EF_Shield.png
+size: 745,345
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 37
+  rotate: false
+  xy: 295, 9
+  size: 167, 334
+  orig: 168, 335
+  offset: 1, 1
+  index: -1
+Layer 37 copy
+  rotate: false
+  xy: 464, 14
+  size: 87, 329
+  orig: 147, 330
+  offset: 0, 1
+  index: -1
+Layer 73
+  rotate: false
+  xy: 553, 77
+  size: 190, 266
+  orig: 191, 266
+  offset: 0, 0
+  index: -1
+Layer 74
+  rotate: true
+  xy: 2, 2
+  size: 341, 291
+  orig: 341, 291
+  offset: 0, 0
+  index: -1

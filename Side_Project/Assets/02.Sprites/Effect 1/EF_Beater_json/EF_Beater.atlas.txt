@@ -1,0 +1,41 @@
+
+EF_Beater.png
+size: 447,148
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Beater01
+  rotate: true
+  xy: 305, 53
+  size: 93, 102
+  orig: 95, 103
+  offset: 1, 0
+  index: -1
+EF_Beater02
+  rotate: true
+  xy: 2, 2
+  size: 144, 301
+  orig: 144, 309
+  offset: 0, 4
+  index: -1
+EF_Beater04
+  rotate: false
+  xy: 409, 104
+  size: 36, 42
+  orig: 37, 43
+  offset: 1, 1
+  index: -1
+EF_Beater05
+  rotate: true
+  xy: 380, 9
+  size: 42, 51
+  orig: 43, 52
+  offset: 0, 1
+  index: -1
+EF_Beater06
+  rotate: true
+  xy: 305, 2
+  size: 49, 73
+  orig: 52, 76
+  offset: 2, 2
+  index: -1

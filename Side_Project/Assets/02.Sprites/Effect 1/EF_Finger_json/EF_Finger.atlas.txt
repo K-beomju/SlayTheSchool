@@ -1,0 +1,27 @@
+
+EF_Finger.png
+size: 329,412
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Finger01
+  rotate: true
+  xy: 2, 133
+  size: 277, 293
+  orig: 285, 301
+  offset: 4, 4
+  index: -1
+EF_Finger02
+  rotate: true
+  xy: 243, 45
+  size: 86, 84
+  orig: 90, 88
+  offset: 2, 2
+  index: -1
+EF_Finger03
+  rotate: false
+  xy: 2, 2
+  size: 239, 129
+  orig: 239, 129
+  offset: 0, 0
+  index: -1

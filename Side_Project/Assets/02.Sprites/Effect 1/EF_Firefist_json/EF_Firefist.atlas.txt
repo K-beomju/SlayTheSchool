@@ -1,0 +1,41 @@
+
+EF_Firefist.png
+size: 944,295
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Firefist01
+  rotate: true
+  xy: 609, 54
+  size: 239, 216
+  orig: 239, 226
+  offset: 0, 5
+  index: -1
+EF_Firefist03
+  rotate: false
+  xy: 827, 55
+  size: 111, 85
+  orig: 113, 85
+  offset: 1, 0
+  index: -1
+EF_Firefist04
+  rotate: true
+  xy: 827, 142
+  size: 151, 115
+  orig: 152, 115
+  offset: 1, 0
+  index: -1
+EF_Firefist05
+  rotate: true
+  xy: 335, 3
+  size: 290, 272
+  orig: 298, 275
+  offset: 1, 2
+  index: -1
+EF_Firefist06
+  rotate: false
+  xy: 2, 2
+  size: 331, 291
+  orig: 336, 297
+  offset: 3, 3
+  index: -1

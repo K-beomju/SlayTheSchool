@@ -1,0 +1,34 @@
+
+EF_Hoff.png
+size: 547,629
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Hoff01
+  rotate: false
+  xy: 335, 401
+  size: 210, 226
+  orig: 211, 226
+  offset: 0, 0
+  index: -1
+EF_Hoff02
+  rotate: true
+  xy: 2, 2
+  size: 316, 322
+  orig: 321, 327
+  offset: 3, 2
+  index: -1
+EF_Hoff03
+  rotate: true
+  xy: 2, 320
+  size: 307, 331
+  orig: 313, 337
+  offset: 3, 3
+  index: -1
+EF_Hoff04
+  rotate: false
+  xy: 335, 183
+  size: 208, 216
+  orig: 215, 224
+  offset: 4, 4
+  index: -1

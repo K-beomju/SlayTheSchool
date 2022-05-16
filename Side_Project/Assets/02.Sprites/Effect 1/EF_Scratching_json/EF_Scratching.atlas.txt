@@ -1,0 +1,27 @@
+
+EF_Scratching.png
+size: 578,318
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 69
+  rotate: true
+  xy: 214, 16
+  size: 300, 185
+  orig: 322, 192
+  offset: 4, 5
+  index: -1
+Layer 70
+  rotate: true
+  xy: 401, 2
+  size: 314, 175
+  orig: 320, 178
+  offset: 3, 3
+  index: -1
+Layer 71
+  rotate: true
+  xy: 2, 25
+  size: 291, 210
+  orig: 297, 216
+  offset: 2, 2
+  index: -1

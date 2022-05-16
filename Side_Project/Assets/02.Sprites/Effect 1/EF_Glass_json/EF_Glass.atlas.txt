@@ -1,0 +1,62 @@
+
+EF_Glass.png
+size: 675,309
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_glass01
+  rotate: false
+  xy: 315, 2
+  size: 147, 113
+  orig: 148, 114
+  offset: 1, 0
+  index: -1
+EF_glass02
+  rotate: false
+  xy: 623, 237
+  size: 48, 30
+  orig: 50, 32
+  offset: 1, 1
+  index: -1
+EF_glass03
+  rotate: false
+  xy: 623, 269
+  size: 48, 38
+  orig: 50, 40
+  offset: 1, 1
+  index: -1
+EF_glass04
+  rotate: true
+  xy: 464, 18
+  size: 139, 124
+  orig: 140, 125
+  offset: 0, 0
+  index: -1
+EF_glass05
+  rotate: true
+  xy: 590, 23
+  size: 134, 83
+  orig: 136, 83
+  offset: 1, 0
+  index: -1
+EF_glass06
+  rotate: false
+  xy: 315, 117
+  size: 147, 190
+  orig: 148, 191
+  offset: 0, 1
+  index: -1
+EF_glass07
+  rotate: false
+  xy: 464, 159
+  size: 157, 148
+  orig: 158, 148
+  offset: 1, 0
+  index: -1
+Layer 1
+  rotate: true
+  xy: 2, 19
+  size: 288, 311
+  orig: 296, 321
+  offset: 4, 5
+  index: -1

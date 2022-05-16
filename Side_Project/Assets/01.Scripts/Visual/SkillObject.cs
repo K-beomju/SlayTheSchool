@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine.Unity;
+using Spine;
 
 public class SkillObject : MonoBehaviour
 {
@@ -14,4 +16,8 @@ public class SkillObject : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+   
+
+    
 }

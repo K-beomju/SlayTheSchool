@@ -1,0 +1,48 @@
+
+EF_Bite.png
+size: 383,482
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Bite01
+  rotate: false
+  xy: 157, 112
+  size: 202, 103
+  orig: 202, 103
+  offset: 0, 0
+  index: -1
+EF_Bite02
+  rotate: true
+  xy: 304, 319
+  size: 161, 77
+  orig: 161, 77
+  offset: 0, 0
+  index: -1
+EF_Bite03
+  rotate: false
+  xy: 157, 9
+  size: 100, 101
+  orig: 104, 104
+  offset: 2, 2
+  index: -1
+EF_Bite04
+  rotate: true
+  xy: 2, 2
+  size: 213, 153
+  orig: 221, 163
+  offset: 4, 5
+  index: -1
+EF_Bite05
+  rotate: true
+  xy: 259, 10
+  size: 100, 101
+  orig: 104, 104
+  offset: 2, 2
+  index: -1
+EF_Bite06
+  rotate: false
+  xy: 2, 217
+  size: 300, 263
+  orig: 308, 271
+  offset: 4, 4
+  index: -1

@@ -1,0 +1,41 @@
+
+EF_Ball.png
+size: 651,222
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Ball01
+  rotate: false
+  xy: 2, 2
+  size: 223, 218
+  orig: 225, 218
+  offset: 1, 0
+  index: -1
+EF_Ball02
+  rotate: false
+  xy: 227, 3
+  size: 223, 217
+  orig: 225, 219
+  offset: 1, 1
+  index: -1
+EF_Ball03
+  rotate: false
+  xy: 452, 84
+  size: 136, 136
+  orig: 136, 136
+  offset: 0, 0
+  index: -1
+EF_Ball0L
+  rotate: false
+  xy: 590, 120
+  size: 59, 100
+  orig: 61, 103
+  offset: 1, 2
+  index: -1
+EF_Ball0R
+  rotate: true
+  xy: 452, 18
+  size: 64, 109
+  orig: 68, 113
+  offset: 2, 2
+  index: -1

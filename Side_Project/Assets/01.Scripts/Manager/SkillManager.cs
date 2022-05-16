@@ -22,6 +22,8 @@ public class SkillManager : Singleton<SkillManager>
     [SerializeField] private Image shieldSliderImage;
     [SerializeField] private Sprite shieldSliderSprite;
 
+    private Sprite hpSlider;
+
     #endregion
 
     protected override void Awake()
@@ -34,7 +36,7 @@ public class SkillManager : Singleton<SkillManager>
         shieldImage.gameObject.SetActive(false);
         shieldText.gameObject.SetActive(false);
         shieldText.text = shieldValue.ToString();
-
+        hpSlider = shieldSliderImage.sprite;
     }
 
     #region Player Direct
@@ -63,6 +65,37 @@ public class SkillManager : Singleton<SkillManager>
 
         shieldSprite.DOFade(1, 1).OnComplete(() => shieldSprite.transform.position = shieldSpriteTr);
         shieldSprite.GetComponent<Transform>().DOLocalMoveY(endTrShieldPos, 0.7f).OnComplete(() => shieldSprite.DOFade(0, 0.3f));
+    }
+
+
+    public int LostShieldValue(int damage)
+    {
+        if (shieldValue <= 0) return 0;
+
+        int value = 0;
+
+        if(shieldValue > damage)
+        {
+            shieldValue -= damage;
+            shieldText.text = shieldValue.ToString();
+
+        }
+        else
+        {
+            value = damage - shieldValue;
+            shieldValue = 0;
+            shieldText.text = " ";
+            DeleteShield();
+        }
+        return value;
+    }
+
+
+    public void DeleteShield()
+    {
+        shieldImage.DOFade(0, 1f);
+        shieldText.DOFade(0, 1f);
+        shieldSliderImage.sprite = hpSlider;
     }
 
 

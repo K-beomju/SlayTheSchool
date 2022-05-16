@@ -1,0 +1,27 @@
+
+EF_Spike.png
+size: 539,160
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Spike01
+  rotate: true
+  xy: 2, 2
+  size: 156, 221
+  orig: 156, 221
+  offset: 0, 0
+  index: -1
+EF_Spike02
+  rotate: true
+  xy: 407, 19
+  size: 139, 130
+  orig: 140, 131
+  offset: 0, 1
+  index: -1
+EF_Spike03
+  rotate: true
+  xy: 225, 27
+  size: 131, 180
+  orig: 131, 180
+  offset: 0, 0
+  index: -1

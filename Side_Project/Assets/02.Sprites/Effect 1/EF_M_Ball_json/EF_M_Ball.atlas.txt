@@ -1,0 +1,48 @@
+
+EF_M_Ball.png
+size: 954,297
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_M_Ball01
+  rotate: false
+  xy: 556, 8
+  size: 140, 147
+  orig: 140, 147
+  offset: 0, 0
+  index: -1
+EF_M_Ball02
+  rotate: false
+  xy: 306, 9
+  size: 248, 286
+  orig: 248, 286
+  offset: 0, 0
+  index: -1
+EF_M_Ball03
+  rotate: true
+  xy: 2, 7
+  size: 288, 302
+  orig: 288, 302
+  offset: 0, 0
+  index: -1
+EF_M_Ball04
+  rotate: false
+  xy: 698, 3
+  size: 128, 152
+  orig: 130, 154
+  offset: 1, 1
+  index: -1
+EF_M_Ball05
+  rotate: false
+  xy: 828, 2
+  size: 124, 153
+  orig: 125, 153
+  offset: 0, 0
+  index: -1
+EF_M_Ball06
+  rotate: false
+  xy: 556, 157
+  size: 324, 138
+  orig: 324, 138
+  offset: 0, 0
+  index: -1

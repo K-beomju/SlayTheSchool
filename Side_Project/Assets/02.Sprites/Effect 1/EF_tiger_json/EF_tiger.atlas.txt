@@ -1,0 +1,48 @@
+
+EF_tiger.png
+size: 234,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_tiger01
+  rotate: true
+  xy: 2, 4
+  size: 122, 96
+  orig: 122, 96
+  offset: 0, 0
+  index: -1
+EF_tiger02
+  rotate: true
+  xy: 161, 49
+  size: 77, 65
+  orig: 77, 65
+  offset: 0, 0
+  index: -1
+EF_tiger03
+  rotate: false
+  xy: 168, 4
+  size: 64, 43
+  orig: 64, 43
+  offset: 0, 0
+  index: -1
+EF_tiger04
+  rotate: false
+  xy: 137, 5
+  size: 29, 36
+  orig: 29, 37
+  offset: 0, 0
+  index: -1
+EF_tiger05
+  rotate: false
+  xy: 100, 2
+  size: 35, 39
+  orig: 35, 39
+  offset: 0, 0
+  index: -1
+EF_tiger06
+  rotate: true
+  xy: 100, 43
+  size: 83, 59
+  orig: 83, 59
+  offset: 0, 0
+  index: -1

@@ -20,7 +20,6 @@ public class EnemyAnimation : MonoBehaviour
 
     private readonly string hashIdle = "Ani_Idle01";
     private readonly string hashHit = "Ani_Hit";
-    private readonly string hashDie = "Ani_Down";
 
     private string currentAnimName;
 
@@ -80,4 +79,5 @@ public class EnemyAnimation : MonoBehaviour
 
     }
 
+ 
 }

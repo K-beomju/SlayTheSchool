@@ -1,0 +1,48 @@
+
+EF_Clock.png
+size: 635,283
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Clock01
+  rotate: false
+  xy: 2, 2
+  size: 279, 279
+  orig: 279, 279
+  offset: 0, 0
+  index: -1
+EF_Clock02
+  rotate: false
+  xy: 283, 5
+  size: 103, 68
+  orig: 105, 70
+  offset: 1, 1
+  index: -1
+EF_Clock03
+  rotate: true
+  xy: 388, 27
+  size: 46, 116
+  orig: 48, 118
+  offset: 1, 1
+  index: -1
+EF_Clock04
+  rotate: false
+  xy: 283, 75
+  size: 234, 206
+  orig: 236, 208
+  offset: 0, 2
+  index: -1
+EF_Clock05
+  rotate: false
+  xy: 519, 167
+  size: 114, 114
+  orig: 116, 116
+  offset: 1, 1
+  index: -1
+EF_Clock06
+  rotate: false
+  xy: 519, 51
+  size: 114, 114
+  orig: 116, 116
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,62 @@
+
+EF_Clap.png
+size: 1384,133
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Clap01
+  rotate: true
+  xy: 2, 2
+  size: 129, 320
+  orig: 129, 320
+  offset: 0, 0
+  index: -1
+EF_Clap02
+  rotate: true
+  xy: 324, 2
+  size: 129, 320
+  orig: 129, 320
+  offset: 0, 0
+  index: -1
+EF_Clap03
+  rotate: true
+  xy: 646, 5
+  size: 126, 137
+  orig: 136, 147
+  offset: 4, 5
+  index: -1
+EF_Clap04
+  rotate: false
+  xy: 785, 17
+  size: 135, 114
+  orig: 145, 123
+  offset: 6, 4
+  index: -1
+EF_Clap05
+  rotate: true
+  xy: 922, 25
+  size: 106, 116
+  orig: 115, 123
+  offset: 4, 4
+  index: -1
+EF_Clap06
+  rotate: true
+  xy: 1040, 25
+  size: 106, 116
+  orig: 115, 123
+  offset: 5, 3
+  index: -1
+EF_Clap07
+  rotate: true
+  xy: 1158, 25
+  size: 106, 116
+  orig: 115, 123
+  offset: 4, 3
+  index: -1
+EF_Clap08
+  rotate: false
+  xy: 1276, 15
+  size: 106, 116
+  orig: 115, 123
+  offset: 5, 4
+  index: -1

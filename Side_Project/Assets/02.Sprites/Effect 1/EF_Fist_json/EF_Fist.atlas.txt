@@ -1,0 +1,34 @@
+
+EF_Fist.png
+size: 473,541
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+EF_Firefist06
+  rotate: false
+  xy: 2, 248
+  size: 331, 291
+  orig: 336, 297
+  offset: 3, 3
+  index: -1
+EF_Fist01
+  rotate: false
+  xy: 247, 18
+  size: 224, 228
+  orig: 226, 230
+  offset: 1, 1
+  index: -1
+EF_Fist02
+  rotate: false
+  xy: 335, 436
+  size: 136, 103
+  orig: 136, 103
+  offset: 0, 0
+  index: -1
+EF_Fist03
+  rotate: false
+  xy: 2, 2
+  size: 243, 244
+  orig: 247, 246
+  offset: 2, 2
+  index: -1

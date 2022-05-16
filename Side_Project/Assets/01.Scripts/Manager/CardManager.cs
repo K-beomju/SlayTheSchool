@@ -255,7 +255,7 @@ public class CardManager : Singleton<CardManager>
 
     public bool TryPutCard()
     {
-        if (cost == 0) return false;
+        if (cost == 0 || cost < selectCard.item.cost) return false;
 
         RaycastHit2D[] hit = default;
         switch (selectCard.item.action)

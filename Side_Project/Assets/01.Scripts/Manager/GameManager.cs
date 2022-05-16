@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         attackPool = new ObjectPooling<SkillObject>(attackEffect, this.transform, 5);
-        damageTxtPool = new ObjectPooling<DamageText>(damageText, this.transform, 5);
+        damageTxtPool = new ObjectPooling<DamageText>(damageText, this.transform, 15);
         bitePool = new ObjectPooling<SpineSkillObject>(biteEffect, this.transform, 5);
         punchPool = new ObjectPooling<SpineSkillObject>(punchEffect, this.transform, 5);
         takeMoneyPool = new ObjectPooling<SpineSkillObject>(takeMoneyEffect, this.transform, 5);

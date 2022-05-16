@@ -37,7 +37,7 @@ public class BezeirArrows : MonoBehaviour
 
     private void Update()
     {
-        this.controlPoints[0] = new Vector2(this.origin.position.x, this.origin.position.y - 400);
+        this.controlPoints[0] = new Vector2(this.origin.position.x, this.origin.position.y - 350);
 
         this.controlPoints[3] = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 

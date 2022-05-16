@@ -1,0 +1,321 @@
+
+Monster_B_Serotonin.png
+size: 633,523
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+DEF01
+  rotate: false
+  xy: 146, 2
+  size: 51, 60
+  orig: 51, 61
+  offset: 0, 0
+  index: -1
+DEF02
+  rotate: false
+  xy: 199, 2
+  size: 51, 60
+  orig: 51, 61
+  offset: 0, 0
+  index: -1
+DEF03
+  rotate: false
+  xy: 199, 2
+  size: 51, 60
+  orig: 51, 61
+  offset: 0, 0
+  index: -1
+DEF04
+  rotate: false
+  xy: 252, 2
+  size: 51, 60
+  orig: 51, 61
+  offset: 0, 0
+  index: -1
+DEF05
+  rotate: false
+  xy: 305, 3
+  size: 51, 60
+  orig: 51, 61
+  offset: 0, 0
+  index: -1
+DEF06
+  rotate: false
+  xy: 305, 3
+  size: 51, 60
+  orig: 51, 61
+  offset: 0, 0
+  index: -1
+DWEF01
+  rotate: true
+  xy: 121, 202
+  size: 319, 113
+  orig: 319, 113
+  offset: 0, 0
+  index: -1
+DWEF01line
+  rotate: true
+  xy: 2, 191
+  size: 330, 117
+  orig: 330, 117
+  offset: 0, 0
+  index: -1
+DWEF02
+  rotate: true
+  xy: 515, 320
+  size: 119, 115
+  orig: 120, 115
+  offset: 0, 0
+  index: -1
+DWEF02line
+  rotate: true
+  xy: 2, 53
+  size: 136, 129
+  orig: 138, 129
+  offset: 1, 0
+  index: -1
+DWEF03
+  rotate: true
+  xy: 515, 199
+  size: 119, 115
+  orig: 120, 115
+  offset: 1, 0
+  index: -1
+DWEF03line
+  rotate: true
+  xy: 133, 64
+  size: 136, 129
+  orig: 138, 129
+  offset: 1, 0
+  index: -1
+DWEF04
+  rotate: false
+  xy: 523, 31
+  size: 37, 37
+  orig: 38, 38
+  offset: 0, 0
+  index: -1
+DWEF05
+  rotate: false
+  xy: 562, 33
+  size: 37, 34
+  orig: 38, 35
+  offset: 1, 0
+  index: -1
+DWEF06
+  rotate: true
+  xy: 55, 3
+  size: 48, 46
+  orig: 49, 46
+  offset: 0, 0
+  index: -1
+DWEF07
+  rotate: true
+  xy: 103, 8
+  size: 43, 41
+  orig: 45, 41
+  offset: 1, 0
+  index: -1
+Downbody
+  rotate: true
+  xy: 363, 90
+  size: 107, 67
+  orig: 108, 68
+  offset: 1, 1
+  index: -1
+Hmouth
+  rotate: false
+  xy: 584, 130
+  size: 41, 29
+  orig: 41, 29
+  offset: 0, 0
+  index: -1
+LH_eye
+  rotate: true
+  xy: 284, 64
+  size: 24, 17
+  orig: 25, 18
+  offset: 0, 1
+  index: -1
+L_armbottom
+  rotate: true
+  xy: 514, 125
+  size: 72, 68
+  orig: 84, 74
+  offset: 6, 0
+  index: -1
+L_armtop
+  rotate: false
+  xy: 432, 111
+  size: 80, 95
+  orig: 87, 95
+  offset: 0, 0
+  index: -1
+L_eye02
+  rotate: true
+  xy: 264, 64
+  size: 24, 18
+  orig: 26, 18
+  offset: 1, 0
+  index: -1
+L_eye_01
+  rotate: false
+  xy: 584, 99
+  size: 39, 29
+  orig: 40, 31
+  offset: 0, 1
+  index: -1
+L_leaf
+  rotate: true
+  xy: 535, 70
+  size: 53, 38
+  orig: 54, 59
+  offset: 0, 20
+  index: -1
+L_leg
+  rotate: true
+  xy: 364, 6
+  size: 82, 68
+  orig: 82, 69
+  offset: 0, 1
+  index: -1
+Leaf_stick
+  rotate: true
+  xy: 575, 69
+  size: 28, 55
+  orig: 28, 57
+  offset: 0, 1
+  index: -1
+Main_sun
+  rotate: false
+  xy: 2, 2
+  size: 51, 49
+  orig: 53, 50
+  offset: 1, 0
+  index: -1
+RH_eye
+  rotate: false
+  xy: 303, 65
+  size: 30, 23
+  orig: 32, 24
+  offset: 1, 0
+  index: -1
+R_armbottom
+  rotate: true
+  xy: 434, 13
+  size: 75, 87
+  orig: 128, 122
+  offset: 2, 16
+  index: -1
+R_armtop
+  rotate: true
+  xy: 515, 441
+  size: 80, 116
+  orig: 81, 129
+  offset: 0, 13
+  index: -1
+R_eye01
+  rotate: false
+  xy: 584, 161
+  size: 43, 36
+  orig: 44, 40
+  offset: 0, 2
+  index: -1
+R_eye02
+  rotate: false
+  xy: 335, 65
+  size: 27, 23
+  orig: 28, 23
+  offset: 0, 0
+  index: -1
+R_leaf
+  rotate: false
+  xy: 236, 202
+  size: 63, 22
+  orig: 79, 51
+  offset: 2, 20
+  index: -1
+R_leg
+  rotate: true
+  xy: 264, 90
+  size: 107, 97
+  orig: 107, 99
+  offset: 0, 2
+  index: -1
+Sunpice01
+  rotate: false
+  xy: 512, 91
+  size: 21, 18
+  orig: 23, 19
+  offset: 1, 0
+  index: -1
+Sunpice02
+  rotate: true
+  xy: 453, 90
+  size: 19, 18
+  orig: 21, 19
+  offset: 1, 0
+  index: -1
+Sunpice03
+  rotate: false
+  xy: 577, 13
+  size: 16, 18
+  orig: 18, 19
+  offset: 1, 1
+  index: -1
+Sunpice04
+  rotate: false
+  xy: 538, 11
+  size: 18, 18
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+Sunpice05
+  rotate: false
+  xy: 432, 90
+  size: 19, 19
+  orig: 20, 20
+  offset: 1, 1
+  index: -1
+Sunpice06
+  rotate: true
+  xy: 473, 90
+  size: 19, 18
+  orig: 21, 19
+  offset: 1, 0
+  index: -1
+Sunpice07
+  rotate: true
+  xy: 558, 11
+  size: 18, 17
+  orig: 20, 19
+  offset: 1, 1
+  index: -1
+Sunpice08
+  rotate: true
+  xy: 493, 90
+  size: 19, 17
+  orig: 19, 19
+  offset: 0, 1
+  index: -1
+body
+  rotate: false
+  xy: 236, 226
+  size: 277, 295
+  orig: 277, 316
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 523, 6
+  size: 23, 13
+  orig: 23, 13
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 305, 208
+  size: 202, 16
+  orig: 202, 16
+  offset: 0, 0
+  index: -1

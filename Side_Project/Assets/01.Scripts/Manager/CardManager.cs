@@ -43,6 +43,7 @@ public class CardManager : Singleton<CardManager>
     private SkillObject attackEffect;
     private DamageText damageText;
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -285,6 +286,7 @@ public class CardManager : Singleton<CardManager>
                         hits.transform.position.y + 0.3f, 0), Utils.QI);
 
                     UseCard();
+
                 }
                 else
                 {

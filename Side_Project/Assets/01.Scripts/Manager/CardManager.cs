@@ -315,6 +315,8 @@ public class CardManager : Singleton<CardManager>
                     CameraManager.ShakeCam(1, 0.2f);
                     FindObjectOfType<Player>().AttackMovement();
 
+                    SoundManager.Instance.PlayFXSound("TakeMoney");
+
                     AddCard();
                     UseCard();
                 }

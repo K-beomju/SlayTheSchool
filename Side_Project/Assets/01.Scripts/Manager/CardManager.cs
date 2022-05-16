@@ -61,7 +61,7 @@ public class CardManager : Singleton<CardManager>
 
     private IEnumerator StartCardCo()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
 
         for (int i = 0; i < spawnCardCount; i++)
         {
@@ -284,8 +284,6 @@ public class CardManager : Singleton<CardManager>
 
                     FindObjectOfType<Player>().AttackMovement();
 
-               
-
                     UseCard();
                     SoundManager.Instance.PlayFXSound("Punch");
 
@@ -294,6 +292,14 @@ public class CardManager : Singleton<CardManager>
                 {
                     CardAlignment();
                     SetOriginOrder();
+                }
+                break;
+            case ActionEnum.»æ¶â±â:
+                {
+                    AddCard();
+                    UseCard();
+
+
                 }
                 break;
         }

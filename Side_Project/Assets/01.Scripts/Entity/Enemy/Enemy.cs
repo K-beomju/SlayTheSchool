@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour
     private EnemyAnimation enemyAnim;
     private SpineSkillObject spineSkill;
 
+
     private void Awake()
     {
         enemyAnim = GetComponent<EnemyAnimation>();
     }
+
 
     public void Attack()
     {

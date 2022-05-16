@@ -70,7 +70,6 @@ public class SkillManager : Singleton<SkillManager>
 
     public int LostShieldValue(int damage)
     {
-        if (shieldValue <= 0) return 0;
 
         int value = 0;
 

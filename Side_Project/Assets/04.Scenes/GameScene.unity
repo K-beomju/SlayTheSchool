@@ -1310,6 +1310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 1249509928}
   damage: 7
+  attackRtPos: {fileID: 0}
 --- !u!61 &383380055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2836,6 +2837,7 @@ GameObject:
   - component: {fileID: 871353478}
   - component: {fileID: 871353480}
   - component: {fileID: 871353479}
+  - component: {fileID: 871353481}
   m_Layer: 5
   m_Name: TurnText
   m_TagString: Untagged
@@ -2884,11 +2886,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 83
+    m_FontSize: 112
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 83
+    m_MaxSize: 112
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2904,6 +2906,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871353477}
   m_CullTransparentMesh: 1
+--- !u!114 &871353481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871353477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 2, y: 2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &936131452
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,7 +3685,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnEndBtn: {fileID: 814201375}
-  turnPanel: {fileID: 0}
+  turnPanel: {fileID: 736026959}
+  turnText: {fileID: 871353479}
 --- !u!1 &1290192217
 GameObject:
   m_ObjectHideFlags: 0

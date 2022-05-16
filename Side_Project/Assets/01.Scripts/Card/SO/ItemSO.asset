@@ -31,3 +31,13 @@ MonoBehaviour:
     count: 5
     type: 3
     action: 0
+  - cost: 1
+    name: "\uC0A5 \uB72F\uAE30"
+    sprite: {fileID: 21300000, guid: eece58da01bfe6241b78a2124e6fade7, type: 3}
+    description: "\uC0C1\uB300\uB97C \uC18D\uC5EC \uD53C\uD574\uB97C   2 \uC785\uD788\uACE0
+      \uCE74\uB4DC \uD55C \uC7A5\uC744 \uAC00\uC838\uC635\uB2C8\uB2E4"
+    attack: 2
+    defense: 0
+    count: 3
+    type: 1
+    action: 2

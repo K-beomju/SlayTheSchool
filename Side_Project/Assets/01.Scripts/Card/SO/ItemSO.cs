@@ -26,14 +26,17 @@ public enum TypeEnum
     더미,
     공격,
     방어,
-    스킬
+    스킬,
+   // 타겟지정,
+   // 즉시시전
 
 }
 
 public enum ActionEnum
 {
     책넣기,
-    죽빵
+    죽빵,
+    삥뜯기
 
 }
 

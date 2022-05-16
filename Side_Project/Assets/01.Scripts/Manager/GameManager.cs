@@ -17,6 +17,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject punchEffect;
     private ObjectPooling<SpineSkillObject> punchPool;
 
+    [SerializeField] private GameObject takeMoneyEffect;
+    private ObjectPooling<SpineSkillObject> takeMoneyPool;
+
     protected override void Awake()
     {
         base.Awake();
@@ -24,6 +27,7 @@ public class GameManager : Singleton<GameManager>
         damageTxtPool = new ObjectPooling<DamageText>(damageText, this.transform, 5);
         bitePool = new ObjectPooling<SpineSkillObject>(biteEffect, this.transform, 5);
         punchPool = new ObjectPooling<SpineSkillObject>(punchEffect, this.transform, 5);
+        takeMoneyPool = new ObjectPooling<SpineSkillObject>(takeMoneyEffect, this.transform, 5);
 
     }
 
@@ -51,5 +55,10 @@ public class GameManager : Singleton<GameManager>
     public static SpineSkillObject GetPunchEffect()
     {
         return Instance.punchPool.GetOrCreate();
+    }
+
+    public static SpineSkillObject GetTakeMoneyEffect()
+    {
+        return Instance.takeMoneyPool.GetOrCreate();
     }
 }

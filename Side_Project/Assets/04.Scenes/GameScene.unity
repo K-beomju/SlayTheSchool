@@ -1310,7 +1310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 1249509928}
   damage: 7
-  attackRtPos: {fileID: 0}
 --- !u!61 &383380055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3637,6 +3636,7 @@ MonoBehaviour:
   damageText: {fileID: 8572007007485731463, guid: 400053a69ef38ca4fac9cf51427a1fd9, type: 3}
   biteEffect: {fileID: 5947297379543124484, guid: 5ae8a1fd211c9654a97e624710429952, type: 3}
   punchEffect: {fileID: 1024249845371728228, guid: f1567069c97d1fb4d85321b3a9bcf31b, type: 3}
+  takeMoneyEffect: {fileID: 1754755381223903135, guid: 0131e2c69b0506f4785424f5fc758179, type: 3}
 --- !u!114 &1270710709
 MonoBehaviour:
   m_ObjectHideFlags: 0

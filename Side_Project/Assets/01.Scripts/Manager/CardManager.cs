@@ -255,6 +255,7 @@ public class CardManager : Singleton<CardManager>
     {
         if (cost == 0) return false;
 
+        RaycastHit2D[] hit = default;
         switch (selectCard.item.action)
         {
             case ActionEnum.Ã¥³Ö±â:
@@ -264,7 +265,7 @@ public class CardManager : Singleton<CardManager>
                 }
                 break;
             case ActionEnum.Á×»§:
-                RaycastHit2D[] hit = Physics2D.RaycastAll(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
+                hit = Physics2D.RaycastAll(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
                 if (Array.Exists(hit, x => x.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")))
                 {
                     var hits = hit[0];
@@ -295,11 +296,27 @@ public class CardManager : Singleton<CardManager>
                 }
                 break;
             case ActionEnum.»æ¶â±â:
+                hit = Physics2D.RaycastAll(Utils.MousePos, Vector3.forward, LayerMask.NameToLayer("Enemy"));
+                if (Array.Exists(hit, x => x.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")))
                 {
+                    var hits = hit[0];
+                    spineSkill = GameManager.GetTakeMoneyEffect();
+                    spineSkill.SetPositionData(new Vector3(hits.transform.position.x,
+                       hits.transform.position.y, 0), Utils.QI);
+
+                    EnemyHealth eh = hits.collider.GetComponent<EnemyHealth>();
+                    if (eh != null)
+                        eh.OnDamage(selectCard.item.attack);
+
+                    attackEffect = GameManager.GetAttackEffect();
+                    attackEffect.SetPositionData(new Vector3(hits.transform.position.x + 0.8f,
+                        hits.transform.position.y + 1f, 0), Utils.QI);
+
+                    CameraManager.ShakeCam(1, 0.2f);
+                    FindObjectOfType<Player>().AttackMovement();
+
                     AddCard();
                     UseCard();
-
-
                 }
                 break;
         }

@@ -6,6 +6,7 @@ using DG.Tweening;
 public class EnemyHealth : LivingEntity
 {
     [SerializeField] private HpSlider hpSlider;
+    [SerializeField] private CanvasGroup scGroup;
     private EnemyAnimation enemyAnim;
     private DamageText damageText;
 
@@ -49,7 +50,10 @@ public class EnemyHealth : LivingEntity
     public void DeathEvent()
     {
         enemyAnim.DieState();
-
+        scGroup.DOFade(1, 1).SetDelay(1).OnComplete(() => {
+            FindObjectOfType<PlayerAnimation>().StopAnim();
+            scGroup.interactable = true;
+            });
     }
 
     public override void Die()

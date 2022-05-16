@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 
 public class GameManager : Singleton<GameManager>
@@ -20,6 +22,10 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject takeMoneyEffect;
     private ObjectPooling<SpineSkillObject> takeMoneyPool;
 
+    public Text goldText;
+    public int gold;
+    public static Action<int> upGoldAction = (x) => { };
+
     protected override void Awake()
     {
         base.Awake();
@@ -29,11 +35,14 @@ public class GameManager : Singleton<GameManager>
         punchPool = new ObjectPooling<SpineSkillObject>(punchEffect, this.transform, 5);
         takeMoneyPool = new ObjectPooling<SpineSkillObject>(takeMoneyEffect, this.transform, 5);
 
+
     }
 
     private void Start()
     {
         SoundManager.Instance.PlayBGMSound("BGM");
+        upGoldAction = GetGold;
+        upGoldAction(0);
     }
 
     public static SkillObject GetAttackEffect()
@@ -61,4 +70,13 @@ public class GameManager : Singleton<GameManager>
     {
         return Instance.takeMoneyPool.GetOrCreate();
     }
+
+    public void GetGold(int value = 0)
+    {
+        gold += value;
+        goldText.text = gold.ToString();
+
+    }
+
+   
 }

@@ -79,4 +79,9 @@ public class PlayerAnimation : MonoBehaviour
 
     }
 
+    public void StopAnim()
+    {
+        skeletonAnimation.enabled = false;
+    }
+
 }

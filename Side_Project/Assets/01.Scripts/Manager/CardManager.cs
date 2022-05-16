@@ -78,6 +78,7 @@ public class CardManager : Singleton<CardManager>
             myCards[i].MoveTransform(new PRS(cardExitPoint.position, myCards[i].transform.rotation, cardPrefab.transform.localScale), true, 0.3f);
             throwCount++;
             throwCardAction(throwCount);
+            SoundManager.Instance.PlayFXSound("Card");
             yield return new WaitForSeconds(0.1f);
         }
 

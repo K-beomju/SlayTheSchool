@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
             ph.OnDamage(damage);
             CameraManager.ShakeCam(1, 0.3f);
 
+            SoundManager.Instance.PlayFXSound("EnemyAttack");
+
             spineSkill = GameManager.GetBiteEffect();
             spineSkill.SetPositionData(new Vector3(ph.transform.position.x, ph.transform.position.y + 0.4f, 0), Utils.QI);
         });

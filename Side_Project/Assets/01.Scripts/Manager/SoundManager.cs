@@ -52,7 +52,6 @@ public class SoundManager : MonoBehaviour
         foreach (var audioClip in Resources.LoadAll<AudioClip>("Sound/BGM")) // Resource 폴더에있는 사운드들 담아두기
         {
             bgmSoundDic.Add(audioClip.name, audioClip);
-            Debug.Log(audioClip.name);
         }
     }
 

@@ -24,7 +24,6 @@ public class SpineSkillObject : MonoBehaviour
     private void SkillMotion()
     {
         skel.ClearState();
-        Debug.Log(skel.AnimationName);
         skel.AnimationName = skillName;
         Spine.AnimationState state = skel.AnimationState;
 

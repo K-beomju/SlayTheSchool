@@ -31,7 +31,7 @@ public class EnemyHealth : LivingEntity
 
         damageText.SetValueText(damage);
         damageText.SetPositionData(new Vector3(transform.position.x + 1f,
-            transform.position.y + 0.3f, 0), Utils.QI);
+            transform.position.y + 2f, 0), Utils.QI);
 
         if (curHp > 0) // 현재 체력이 0 이상일때만 애니메이션 실행
             enemyAnim.HitState();

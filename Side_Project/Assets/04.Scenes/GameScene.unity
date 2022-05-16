@@ -3219,6 +3219,7 @@ GameObject:
   - component: {fileID: 1270710709}
   - component: {fileID: 1270710707}
   - component: {fileID: 1270710708}
+  - component: {fileID: 1270710710}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3286,6 +3287,21 @@ MonoBehaviour:
   endTrShieldPos: 3.65
   shieldSliderImage: {fileID: 1750614480}
   shieldSliderSprite: {fileID: 21300000, guid: 6b8a26c361623664caecd9b76a849ac6, type: 3}
+--- !u!114 &1270710710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270710705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1177e67aaa43b409fb15c91f527ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVoulme: 1
+  bgmVolume: 1
+  fxVoulme: 1
 --- !u!1 &1290192217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3782,6 +3798,7 @@ GameObject:
   - component: {fileID: 1471436508}
   - component: {fileID: 1471436512}
   - component: {fileID: 1471436513}
+  - component: {fileID: 1471436514}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3914,6 +3931,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0fd0a57431d8524ebe12fe7b40be89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &1471436514
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471436507}
+  m_Enabled: 1
 --- !u!1 &1624792167
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,14 +5623,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &5011157934544050780
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5011157934544050781}
-  m_Enabled: 1
 --- !u!1 &5011157934544050781
 GameObject:
   m_ObjectHideFlags: 0
@@ -5616,7 +5633,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5011157934544050849}
   - component: {fileID: 5011157934544050782}
-  - component: {fileID: 5011157934544050780}
   - component: {fileID: 5011157934544050783}
   - component: {fileID: 5011157934544050848}
   m_Layer: 0

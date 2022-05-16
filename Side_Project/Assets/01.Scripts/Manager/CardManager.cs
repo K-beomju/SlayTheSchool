@@ -55,6 +55,7 @@ public class CardManager : Singleton<CardManager>
         StartCoroutine(SpawnCardCo());
         cost = maxCost;
         costText.text = String.Format("{0} / {1}", cost, maxCost);
+
     }
 
     private IEnumerator SpawnCardCo()
@@ -286,6 +287,7 @@ public class CardManager : Singleton<CardManager>
                         hits.transform.position.y + 0.3f, 0), Utils.QI);
 
                     UseCard();
+                    SoundManager.Instance.PlayFXSound("Punch");
 
                 }
                 else

@@ -53,14 +53,6 @@ public class CardManager : Singleton<CardManager>
         SetupItemBuffer();
     }
 
-    private void Start()
-    {
-        StartCoroutine(StartCardCo());
-        cost = maxCost;
-        costText.text = String.Format("{0} / {1}", cost, maxCost);
-
-    }
-
     private IEnumerator StartCardCo()
     {
         yield return new WaitForSeconds(0.3f);

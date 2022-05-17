@@ -24,6 +24,7 @@ public class TurnManager : Singleton<TurnManager>
     private void Start()
     {
         turnEndBtn.onClick.AddListener(() => TurnEnd());
+        TurnStart();
     }
 
     public void TurnEnd()

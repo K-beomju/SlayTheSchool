@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         OnOutline(false);
+
+        GetComponent<MeshRenderer>().sortingOrder = 2; // set the order in layer to 2
+        int sortingLayerId = GetComponent<MeshRenderer>().sortingLayerID; // get the sorting layer ID.
     }
 
     public void OnOutline(bool isActive)

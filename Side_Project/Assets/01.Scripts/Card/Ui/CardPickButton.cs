@@ -12,8 +12,7 @@ public class CardPickButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private void Start()
     {
-        if (picDecPanel == null)
-            picDecPanel = GameObject.Find("PickPanel");
+       
 
         picDecPanel.SetActive(false);
         //exitButton.onClick.AddListener(DetativePanel);
